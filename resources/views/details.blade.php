@@ -56,7 +56,7 @@
 'klas'=>$users->klas
 ])}}">
     @csrf
-    <div class="form-group">
+    <div class="form-group" style="margin-bottom: 0px">
         <label for="text">{{$users->rank}} Likes</label>
         @include('flash')
     </div>
