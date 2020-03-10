@@ -70,7 +70,8 @@ class UserController extends Controller
 
         $klassen = UpdateKlasModel::orderBy('klas','asc')
         ->select('klas')
-        ->get();
+        ->where('zien',0)
+        ->get(); 
 
         $user = UpdatePostModel::orderBy('rank' , 'desc')
         ->select($this->creds)->get();
@@ -110,6 +111,7 @@ class UserController extends Controller
         if ($id == $this->RDTYHUII){
             $klassen = UpdateKlasModel::orderBy('klas','asc')
             ->select('klas')
+            ->where('zien',0)
             ->get();
     
             $user = UpdatePostModel::orderBy('rank' , 'desc')
@@ -121,6 +123,7 @@ class UserController extends Controller
         }else{
             $klassen = UpdateKlasModel::orderBy('klas','asc')
             ->select('klas')
+            ->where('zien',0)
             ->get();
 
             $user = UpdatePostModel::where('klas',$id)

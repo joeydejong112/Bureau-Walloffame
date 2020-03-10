@@ -38,14 +38,7 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    protected function admin(Request $request)
-    {
-        $request->user()->checkRoles('admin');
-
-
-         
-            return view('admin');
-    }
+   
    
  
     public function account(Request $request){

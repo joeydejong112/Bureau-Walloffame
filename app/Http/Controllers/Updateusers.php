@@ -125,7 +125,8 @@ class Updateusers extends Controller
       echo"Auth error wtf? ben je wel ingelogd?????????????? 7777 pepega clap gekke hacker";
 
     }
-      
+    
+    
        
-      }
+  }
 }

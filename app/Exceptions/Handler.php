@@ -54,7 +54,7 @@ class Handler extends ExceptionHandler
             if ($exception->getStatusCode() == 500) {
                 return response()->view('errors.' . '500', [], 500);
             }
-            if ( $e instanceof \Illuminate\Database\QueryException ) {
+            if ( $exception instanceof \Illuminate\Database\QueryException ) {
                 return response()->view('errors.' . 'query', [], 500);
                 //Or
                 dump($e->errorInfo);

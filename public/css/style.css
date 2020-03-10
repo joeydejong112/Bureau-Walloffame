@@ -152,13 +152,11 @@ a:hover {
 footer {
     height: 54px;
     width: 100%;
-    position: absolute;
     bottom: 0;
     /* top: 100%; */
     line-height: 54px;
     text-align: center;
     background-color: transparent;
-    box-shadow: -5px 4px 29px -18px rgba(0, 0, 0, 0.75);
 }
 
 footer span {
@@ -707,4 +705,15 @@ button:hover {
     height: 100px;
     border: 1px solid black;
     margin: 10px;
+}
+table{
+    width: 90%;
+    margin: 0 auto;
+}
+td {
+    padding: 20px;
+    margin-right: 20px ;
+}
+.edit_user{
+    
 }
