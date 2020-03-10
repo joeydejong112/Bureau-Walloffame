@@ -13,8 +13,7 @@
 
 Route::post('updateUsersRed','Updateusers@update');
 Route::post('updateUsersLike/{id}/{rank}/{authid}/{klas}','Updateusers@Like');
-Route::post('admin/update/user','UpdateAdmin@adminupdateuser');
-Route::post('admin/update/klas','UpdateAdmin@adminupdateklas');
+
 
 
 
@@ -33,6 +32,8 @@ Auth::routes();
 
 
 // AdminController 
+Route::post('admin/update/user','UpdateAdmin@adminupdateuser');
+Route::post('admin/update/klas','UpdateAdmin@adminupdateklas');
 Route::get('/admin', 'AdminController@admin_home')->name('admin');
 Route::get('/admin/user/{id}', 'AdminController@sort_user');
 Route::get('/admin/klas/{id}', 'AdminController@sort_klas')->name('adminklas');

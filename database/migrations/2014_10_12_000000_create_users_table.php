@@ -38,11 +38,7 @@ class CreateUsersTable extends Migration
             $table->boolean('global_vote')->default($this->niks);
             $table->timestamps();
         });
-        Schema::create('klassen', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('klas');
-           
-        });
+      
     }
 
     /**
