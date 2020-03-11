@@ -63,15 +63,12 @@ class UserController extends Controller
         return view('details', ['pathwebsite' => $pathwebsite ,'pathuser' => $pathuser ,'users' => $users]);
 
     }
-  
     public function output(){
        $pathuser = $this->pathuser;
        $pathwebsite = $this->pathwebsite;
-       if ( Auth::user()->profile_image == "default.png"){
-           echo"oke";
-           $pathuser = "Website/default.jpg";
-       }
+    
 
+     
         $klassen = UpdateKlasModel::orderBy('klas','asc')
         ->select('klas')
         ->where('zien',0)

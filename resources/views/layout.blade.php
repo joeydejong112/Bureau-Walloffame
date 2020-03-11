@@ -40,7 +40,18 @@
                     <li class="nav-item ">
                         <a style="color:black;padding:0px;" id="navbarDropdown" class="nav-link dropdown-toggle" href="#"
                             role="button" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false" v-pre>
-                            <img src="{{ asset($pathuser.'/'.Auth::user()->id .'/'. Auth::user()->profile_image) }}" style="border-radius: 50%;width: 48px;height: 48px;" />
+                         
+                            @if (Auth::user()->profile_image == 'default.png')
+                                <img src="{{ asset('Website/default.png') }}"
+                                 alt="{{Auth::user()->profile_image}} " class="" style="border-radius: 50%;width: 48px;height: 48px;" />
+                               
+
+                            @else
+                                <img src="{{ asset($pathuser.'/'.Auth::user()->id .'/'. Auth::user()->profile_image) }}"
+                                alt="{{Auth::user()->profile_image}}" style="border-radius: 50%;width: 48px;height: 48px;"/>
+    
+                           @endif         
+                         
                             <span class="caret"></span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">

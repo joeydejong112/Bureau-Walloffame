@@ -3,8 +3,8 @@
 }
 
 body {
-    background-size: cover;
-    background-image: url('http://joeydejong12.epizy.com/img/background.png');
+
+background-image: url('../website/background.png');    background-size: cover;
 }
 
 /* width */
@@ -284,6 +284,7 @@ footer span {
     width: 200px;
     height: 194px;
     opacity: 1;
+    background : white;
     border: 2px solid rgba(255, 255, 255, 1);
     -webkit-transform: translate(-50%, 0%);
     transform: translate(-50%, 0%);
@@ -496,7 +497,9 @@ button:hover {
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
 }
-
+.user_card img{
+    background : white;
+}
 .card_user {
     width: 450px;
     height: 250px;
@@ -714,6 +717,8 @@ td {
     padding: 20px;
     margin-right: 20px ;
 }
-.edit_user{
-    
-}
+@media screen and (max-width: 991px) {
+   .dropdown-item{
+       text-align: right;
+   }
+  }

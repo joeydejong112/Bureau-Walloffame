@@ -9,8 +9,17 @@
 @section('content')
 <div class="header" style="background-image:url('{{$users->background}}');background:{{$users->background}};">
     <div class="iconprofile">
-        <img src={{ asset($pathuser.'/'.$users->id .'/'. $users->profile_image) }} alt="profile picture"
-            class="photo" />
+        @if ($users->profile_image == 'default.png')
+        <img src="{{ asset('Website/default.png') }}"
+         alt="{{$users->profile_image}} " class="photo" />
+       
+
+    @else
+        <img src="{{ asset($pathuser.'/'.$users->id .'/'. $users->profile_image) }}"
+        alt="{{$users->profile_image}}" class="photo"/>
+
+   @endif         
+ 
     </div>
 </div>
 <div class="content1">
