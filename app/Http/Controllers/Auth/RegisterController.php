@@ -28,7 +28,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
+    protected $redirectTo = '/setup';
 
     /**
      * Create a new controller instance.
@@ -37,7 +37,6 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-     
 
         $this->middleware('guest');
         // $this->middleware('auth');
@@ -107,8 +106,8 @@ class RegisterController extends Controller
 
 
         ]);
-        $user->roles()->attach(\App\Role::where('name', 'user')->first());
-
+      $user->roles()->attach(\App\Role::where('name', 'setup')->first());
+               
         return $user;
     }
 }

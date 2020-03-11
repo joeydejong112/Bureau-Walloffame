@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('website/layout')
 @section('content')
 <p class="text">ERROR: Page not found</p>
 

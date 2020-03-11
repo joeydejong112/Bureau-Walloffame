@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Redirect;
+use Illuminate\Foundation\Auth\RegistersUsers;
 
 use Illuminate\Http\Request;
 use App\UpdatePostModel;
-use App\path;
+
+use App\roles;
 
 class Updateusers extends Controller
 {
@@ -25,6 +27,14 @@ class Updateusers extends Controller
 // MOET JE NOG FIXEN
   public function update(Request $req){
   
+    if (Auth::check()) {
+      if ($req->user()->hasRole('setup')) {
+
+         Roles::where('user_id',Auth::user()->id)->update([
+          'role_id' => '1'
+         ]);
+      }
+  }
 
     if ($file = $req->file('profile_image')){
       

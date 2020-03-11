@@ -16,5 +16,10 @@
             $role_admin_user->name = 'admin';
             $role_admin_user->description = 'An admin user';
             $role_admin_user->save();
+
+            $role_admin_user = new Role;
+            $role_admin_user->name = 'setup';
+            $role_admin_user->description = 'Moet setup nog afmaken';
+            $role_admin_user->save();
         }
     }

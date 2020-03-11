@@ -26,7 +26,7 @@ Route::get('/succes', 'UserController@output')->name('succes');
 Route::get('/account', 'UserController@account');
 Route::get('/details/{id}', 'UserController@details')->name('details');
 Route::get('/details', 'UserController@owndetails');
-
+Route::get('/setup', 'UserController@setup')->name('setup');
 
 Auth::routes();
 
