@@ -62,10 +62,7 @@ class RegisterController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'opleiding' => ['required', 'string', 'max:255'],
-            'github' => ['required' , 'string' ,'max:255'],
-            'gitlab' => ['required' , 'string' ,'max:100'],
-            'linkedin' => ['required' , 'string' ,'max:100'],
-            'klas' => ['required', 'string', 'max:4'],
+            'klas' => ['required', 'string', 'max:4']
 
             // 
             // 
@@ -82,8 +79,23 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {      
+        
+            if ($data['github'] == NULL){
 
-        $user = User::create([
+                $data['github'] = "#";
+
+            }
+            if($data['gitlab'] == NULL){
+
+                $data['gitlab'] = "#";
+            }
+            if($data['linkedin'] == NULL){
+                        
+                $data['linkedin'] = "#";
+            }
+
+
+             $user = User::create([
             'name'     => $data['name'],
             'email'    => $data['email'],
             'password' => bcrypt($data['password']),

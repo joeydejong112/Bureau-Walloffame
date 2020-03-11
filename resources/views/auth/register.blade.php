@@ -7,7 +7,7 @@
                 <div class="card-header">{{ __('Register') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                         @csrf
 
                         <div class="form-group row">
@@ -67,24 +67,24 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="github" class="col-md-4 col-form-label text-md-right">{{ __('github') }}</label>
+                            <label for="github" class="col-md-4 col-form-label text-md-right">{{ __('github link:') }}</label>
 
                             <div class="col-md-6">
-                                <input id="github" type="text" class="form-control" name="github" required >
+                                <input id="github" type="text" class="form-control" name="github"  >
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="gitlab" class="col-md-4 col-form-label text-md-right">{{ __('Gitlab') }}</label>
+                            <label for="gitlab" class="col-md-4 col-form-label text-md-right">{{ __('Gitlab link:') }}</label>
 
                             <div class="col-md-6">
-                                <input id="gitlab" type="text" class="form-control" name="gitlab" required >
+                                <input id="gitlab" type="text" class="form-control" name="gitlab"  >
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="linkedin" class="col-md-4 col-form-label text-md-right">{{ __('linkedin') }}</label>
+                            <label for="linkedin" class="col-md-4 col-form-label text-md-right">{{ __('linkedin link:') }}</label>
 
                             <div class="col-md-6">
-                                <input id="linkedin" type="text" class="form-control" name="linkedin" required >
+                                <input id="linkedin" type="text" class="form-control" name="linkedin"  >
                             </div>
                         </div>
 

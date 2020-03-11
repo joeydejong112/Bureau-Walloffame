@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use App\User;
 use App\UpdateKlasModel;
 use App\UpdatePostModel;
-
+use Auth;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -67,6 +67,10 @@ class UserController extends Controller
     public function output(){
        $pathuser = $this->pathuser;
        $pathwebsite = $this->pathwebsite;
+       if ( Auth::user()->profile_image == "default.png"){
+           echo"oke";
+           $pathuser = "Website/default.jpg";
+       }
 
         $klassen = UpdateKlasModel::orderBy('klas','asc')
         ->select('klas')
