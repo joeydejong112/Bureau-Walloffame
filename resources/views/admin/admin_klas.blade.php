@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('website/layout')
 @section('content')
 <div class="col-md-10 m-auto " style="padding-top:109px;">
     <style>

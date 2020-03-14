@@ -23,7 +23,7 @@
 
 @foreach ($topuser1 as $topuser1)
 
-<a href="{{ url('/details/'.$topuser1->id) }}" style="margin:0 auto;">
+<a href="{{ url('/details/'.$topuser1->id) }}" class="mx-auto">
     <div class="image_card_al">
     <img src="{{asset('website/1st.png')}}" alt="1st" class="plaats">
     </div>

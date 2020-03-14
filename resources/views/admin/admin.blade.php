@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('website/layout')
 @section('content')<div style="margin-top: 100px"></div>
 
 <table>

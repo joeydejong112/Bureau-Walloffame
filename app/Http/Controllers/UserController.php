@@ -44,9 +44,9 @@ class UserController extends Controller
         if (Auth::check()) {
 
             if ($request->user()->hasRole(['user'])) {
-                return redirect('setup');
-            } else {
-                $request->user()->checkRoles('setup');
+                return redirect('home');
+            } 
+            if ($request->user()->hasRole(['setup'])) {
 
                 $pathuser = $this->pathuser;
                 $pathwebsite = $this->pathwebsite;
@@ -54,6 +54,10 @@ class UserController extends Controller
                 );
 
                 return view('website/setup', ['pathwebsite' => $pathwebsite, 'pathuser' => $pathuser, 'users' => $users]);
+            } 
+            
+            {
+               
             }
         } else {
             return redirect('home');
