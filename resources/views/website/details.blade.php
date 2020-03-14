@@ -10,16 +10,15 @@
 <div class="header" style="background-image:url('{{$users->background}}');background:{{$users->background}};">
     <div class="iconprofile">
         @if ($users->profile_image == 'default.png')
-        <img src="{{ asset('Website/default.png') }}"
-         alt="{{$users->profile_image}} " class="photo" />
-       
+        <img src="{{ asset('Website/default.png') }}" alt="{{$users->profile_image}} " class="photo" />
 
-    @else
-        <img src="{{ asset($pathuser.'/'.$users->id .'/'. $users->profile_image) }}"
-        alt="{{$users->profile_image}}" class="photo"/>
 
-   @endif         
- 
+        @else
+        <img src="{{ asset($pathuser.'/'.$users->id .'/'. $users->profile_image) }}" alt="{{$users->profile_image}}"
+            class="photo" />
+
+        @endif
+
     </div>
 </div>
 <div class="content1">
@@ -53,26 +52,26 @@
     </div>
 </div>
 @guest
-<div class="form-group detail_like_guest">
-    <label for="text">{{$users->rank}} Likes</label>
-    <i style="color:red;" class="fa fa-heart"></i>
-</div>
-@else
-<form class="likes_form" method="POST" action="{{ action('Updateusers@Like',[
-'id'=> $users->id,
-'rank' =>$users->rank,
-'authid'=>Auth::user()->id,
-'klas'=>$users->klas
-])}}">
-    @csrf
-    <div class="form-group" style="margin-bottom: 0px">
+    <div class="form-group detail_like_guest">
         <label for="text">{{$users->rank}} Likes</label>
-        @include('errors/flash')
+        <i style="color:red;" class="fa fa-heart"></i>
     </div>
-    <button type="submit" class="button button-like">
-        <i class="fa fa-heart"></i>
-        <span>Like</span>
-    </button>
-</form>
+@else
+    <form class="likes_form" method="POST" action="{{ action('Updateusers@Like',[
+    'id'=> $users->id,
+    'rank' =>$users->rank,
+    'authid'=>Auth::user()->id,
+    'klas'=>$users->klas
+    ])}}">
+        @csrf
+        <div class="form-group" style="margin-bottom: 0px">
+            <label for="text">{{$users->rank}} Likes</label>
+            @include('errors/flash')
+        </div>
+        <button type="submit" class="button button-like">
+            <i class="fa fa-heart"></i>
+            <span>Like</span>
+        </button>
+    </form>
 @endguest
 @endsection
