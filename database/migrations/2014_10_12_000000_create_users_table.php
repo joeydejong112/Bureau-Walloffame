@@ -24,7 +24,7 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('background')->default($this->test);
-            $table->string('profile_image')->default('defailt.png');
+            $table->string('profile_image')->default('default.png');
             $table->string('opleiding')->default($this->nogniet);
             $table->string('github')->default('https://github.com/');
             $table->string('gitlab')->default('https://about.gitlab.com/');
