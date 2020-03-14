@@ -4,7 +4,8 @@
 
 body {
 
-background-image: url('../website/background.png');    background-size: cover;
+    background-image: url('../website/background.png');
+    background-size: cover;
 }
 
 /* width */
@@ -197,6 +198,10 @@ footer span {
 
 }
 
+.nav-link {
+    padding-right: 23px !important;
+
+}
 
 .navbar {
     z-index: 500;
@@ -284,28 +289,33 @@ footer span {
     width: 200px;
     height: 194px;
     opacity: 1;
-    background : white;
+    background: white;
     border: 2px solid rgba(255, 255, 255, 1);
     -webkit-transform: translate(-50%, 0%);
     transform: translate(-50%, 0%);
     z-index: 200;
 }
-.image_card_al{
+
+.image_card_al {
     width: 100%;
 }
+
 .content1 {
     width: 100%;
     margin-top: 57px;
 }
-.content1 h3{
+
+.content1 h3 {
     text-align: center;
 }
 
 .content1 p {
     text-align: center;
 }
-.detail_like_guest{
-    text-align:center;width:100%;
+
+.detail_like_guest {
+    text-align: center;
+    width: 100%;
 }
 
 .p1 {
@@ -361,9 +371,26 @@ footer span {
     border-radius: 15%;
 }
 
+.button_setup  {
+    background-color: darkgray;
+    width: 19%;
+    color: black;
+    margin-top: 20px;
+    margin-bottom: 23px;
+    font-weight: bold;
+    font-size: initial;
+}
+
+.button_setup:hover {
+    color: #495057;
+    background-color: #fff;
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, .25);
+}
+
 button:hover {
     color: white;
-    background-color: black;
 }
 
 .button-like {
@@ -497,9 +524,11 @@ button:hover {
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
 }
-.user_card img{
-    background : white;
+
+.user_card img {
+    background: white;
 }
+
 .card_user {
     width: 450px;
     height: 250px;
@@ -696,6 +725,12 @@ button:hover {
     height: auto;
 }
 
+.board_top {
+    background: transparent;
+    box-shadow: none;
+    margin-bottom: -153px;
+}
+
 
 @keyframes fadeOut {
     100% {
@@ -709,16 +744,32 @@ button:hover {
     border: 1px solid black;
     margin: 10px;
 }
-table{
+
+table {
     width: 90%;
     margin: 0 auto;
 }
+.display_none{
+    display: none;
+}
+.profile_image_layout {
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+}
+
 td {
     padding: 20px;
-    margin-right: 20px ;
+    margin-right: 20px;
 }
+
 @media screen and (max-width: 991px) {
-   .dropdown-item{
-       text-align: right;
-   }
-  }
+    .dropdown-item {
+        text-align: right;
+    }
+
+    .board_top {
+        padding-bottom: 45%;
+
+    }
+}

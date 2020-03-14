@@ -24,8 +24,11 @@ class AdminController extends Controller
             if ($request->user()->hasRole('setup')) {
                 return redirect('setup');
             }
+            if ($request->user()->hasRole('user')) {
+                return redirect('home');
+            }
         }
-        $request->user()->checkRoles('admin');
+        // $request->user()->checkRoles('admin');
 
         $users = UpdatePostModel::orderBy('id','asc')
         ->get();
@@ -36,14 +39,12 @@ class AdminController extends Controller
     }
     public function sort_user(Request $request,$id){
         
-        $request->user()->checkRoles('admin');
 
         $sortuser = UpdatePostModel::find($id);
         return view('admin/admin_user',['sortuser' => $sortuser, 'pathuser' => $this->pathuser]);
 
     }
     public function sort_klas(Request $request,$id){
-        $request->user()->checkRoles('admin');
 
         $klassen = UpdateKlasModel::find($id);
         

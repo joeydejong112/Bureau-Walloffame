@@ -12,7 +12,7 @@
         {
             $user = new User;
             $user->name = 'Samuel Jackson';
-            $user->email = 'joeyde1012@gmail.com';
+            $user->email = 'joeydejong1112@gmail.com';
             $user->password = bcrypt('Snoek112');
             $user->background = 'green';
             $user->profile_image ='default.png';

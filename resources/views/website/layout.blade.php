@@ -43,12 +43,12 @@
                          
                             @if (Auth::user()->profile_image == 'default.png')
                                 <img src="{{ asset('Website/default.png') }}"
-                                 alt="{{Auth::user()->profile_image}} " class="" style="border-radius: 50%;width: 48px;height: 48px;" />
+                                 alt="{{Auth::user()->profile_image}} " class="profile_image_layout"  />
                                
 
                             @else
                                 <img src="{{ asset($pathuser.'/'.Auth::user()->id .'/'. Auth::user()->profile_image) }}"
-                                alt="{{Auth::user()->profile_image}}" style="border-radius: 50%;width: 48px;height: 48px;"/>
+                                alt="{{Auth::user()->profile_image}}" class="profile_image_layout" />
     
                            @endif         
                          
@@ -64,7 +64,7 @@
                             <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                                 {{ __('Log uit') }}
                             </a>
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="display_none">
                                 @csrf
                             </form>
                         </div>
@@ -77,7 +77,7 @@
     @if (trim($__env->yieldContent('topusers')))
         <div class="container-fluid">
             <div class="row topusers">
-                <h3 class="board" style="background:transparent;box-shadow:none;margin-bottom: -153px;">
+                <h3 class="board board_top">
                 Top Studenten 
                 </h3>
                 @yield('topusers')
