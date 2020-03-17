@@ -1,7 +1,5 @@
 <?php
-if (env('APP_ENV') === 'production') {
-    URL::forceSchema('https');
-}
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
