@@ -51,7 +51,7 @@ class AdminController extends Controller
        $message = "tets";
       
     //    {{url('/admin/user/delete/'.$users->id)}}
-    dd(  UpdatePostModel::find($id)->delete());
+      UpdatePostModel::find($id)->delete();
     }
    public function role_update($rank,$targetid){
         if ($rank == "user"){
@@ -84,6 +84,7 @@ class AdminController extends Controller
         'klas' => $request->klas,
         'zien' => $request->zien
     ]);
+    return redirect()->route('admin');
 
 
    }
