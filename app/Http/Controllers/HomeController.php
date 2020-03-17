@@ -40,13 +40,7 @@ class HomeController extends Controller
      */
    
    
- 
-    public function account(Request $request){
-        $request->user()->checkRoles('guest');
 
-            return view('/account');
-    }
-    
     
     
 }

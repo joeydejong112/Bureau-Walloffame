@@ -1,12 +1,16 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
+use Illuminate\Support\Arr;
 
 use App\Http\Controllers\Controller;
 use App\User;
+use App\UpdateKlasModel;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\Request;
+
 
 class RegisterController extends Controller
 {
@@ -20,6 +24,17 @@ class RegisterController extends Controller
     | provide this functionality without requiring any additional code.
     |
     */
+    public function showRegistrationForm()
+{
+    
+
+    $klassen = UpdateKlasModel::orderBy('klas', 'asc')
+    ->select('klas')
+    ->where('zien', 0)
+    ->get();    
+    return view('auth.register', ['klassen' => $klassen]);
+
+}
 
     use RegistersUsers;
 
@@ -37,6 +52,8 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
+        $oke = UpdateKlasModel::get();
+
 
         $this->middleware('guest');
         // $this->middleware('auth');

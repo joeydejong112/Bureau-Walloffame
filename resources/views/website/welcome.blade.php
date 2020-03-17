@@ -10,15 +10,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="https://kit.fontawesome.com/d24ca64b2d.js" crossorigin="anonymous"></script>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <title>Welcome | Wall of Fame</title>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg">
         <div class="d-flex flex-grow-1">
-            <span class="w-100 d-lg-none d-block"></span>
             <a style="color:black;" class="navbar-brand mr-5" href="/">
                 Grafisch lyceum / Wall of fame
             </a>

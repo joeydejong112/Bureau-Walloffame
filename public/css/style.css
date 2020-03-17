@@ -762,7 +762,31 @@ td {
     padding: 20px;
     margin-right: 20px;
 }
+.but{
+    padding: 3px;
+    margin: 4px;
+    border-radius: 14%;
+    height: 35px;
+    line-height: 29px;
+    width: 62px;
+    text-align: center;
+    float: left;
+}
+table a{
+    color: white!important;
+}
+.modal-footer a{
+    color: white!important;
+}
+.admin_klas{
+    padding-left: 5%;
+    padding-bottom: 5%;
 
+
+}
+.admin_form{
+    width: 30%;
+}
 @media screen and (max-width: 991px) {
     .dropdown-item {
         text-align: right;
@@ -773,3 +797,10 @@ td {
 
     }
 }
+@media screen and (max-width: 730px) {
+    .align_welcome{
+        margin-top: 68px;
+
+    }
+}
+

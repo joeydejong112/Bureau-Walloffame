@@ -10,14 +10,17 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/setup', 'UserController@setup')->name('setup');
+
 
 Route::post('updateUsersRed','Updateusers@update');
 Route::post('updateUsersLike/{id}/{rank}/{authid}/{klas}','Updateusers@Like');
 
 
 
+Route::middleware(['setup_checker'])->group(function () {
 
-
+//bekijk voor setup role | middleware setup_checker redirect naar setup pagina
 Route::get('/klas/{id}', 'UserController@sort');
 
 Route::get('/', 'UserController@welcome');
@@ -26,15 +29,29 @@ Route::get('/succes', 'UserController@output')->name('succes');
 Route::get('/account', 'UserController@account');
 Route::get('/details/{id}', 'UserController@details')->name('details');
 Route::get('/details', 'UserController@owndetails');
-Route::get('/setup', 'UserController@setup')->name('setup');
-
+});
 Auth::routes();
 
+Route::middleware(['admin'])->group(function () {
+//bekijk voor admin role | middleware admin(adminchecker.php) redirect naar setup pagina
 
 // AdminController 
 Route::post('admin/update/user','UpdateAdmin@adminupdateuser');
 Route::post('admin/update/klas','UpdateAdmin@adminupdateklas');
+
 Route::get('/admin', 'AdminController@admin_home')->name('admin');
+
+Route::get('/admin/rank/{rank}/{targetid}', 'AdminController@role_update');
+
+
 Route::get('/admin/user/{id}', 'AdminController@sort_user');
+Route::get('/admin/user/delete/{id}', 'AdminController@user_delete');
+
 Route::get('/admin/klas/{id}', 'AdminController@sort_klas')->name('adminklas');
+Route::get('/admin/klas/delete/{id}', 'AdminController@delete_klas');
+Route::post('klasadd','AdminController@add_klas')->name('klasadd');
+
+
+});
+
 

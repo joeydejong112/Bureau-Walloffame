@@ -41,59 +41,26 @@ class UserController extends Controller
     }
     protected function setup(Request $request)
     {
-        if (Auth::check()) {
-
-            if ($request->user()->hasRole(['user'])) {
-                return redirect('home');
-            } 
-            if ($request->user()->hasRole(['setup'])) {
-
                 $pathuser = $this->pathuser;
                 $pathwebsite = $this->pathwebsite;
                 $users = User::find($request->user()->id
                 );
 
                 return view('website/setup', ['pathwebsite' => $pathwebsite, 'pathuser' => $pathuser, 'users' => $users]);
-            } 
-            
-            {
-               
-            }
-        } else {
-            return redirect('home');
-
-        }
 
     }
     protected function account(Request $request)
     {
-
-        if (Auth::check()) {
-            if ($request->user()->hasRole('setup')) {
-                return redirect('setup');
-            } else {
-                $request->user()->checkRoles(['admin', 'user']);
-                $pathuser = $this->pathuser;
-                $pathwebsite = $this->pathwebsite;
-                $users = User::find($request->user()->id
-                );
-
-                return view('website/account', ['pathwebsite' => $pathwebsite, 'pathuser' => $pathuser, 'users' => $users]);
-            }
-
-        } else {
-            return redirect('home');
-
-        }
+        $pathuser = $this->pathuser;
+        $pathwebsite = $this->pathwebsite;
+        $users = User::find($request->user()->id);
+        return view('website/account', ['pathwebsite' => $pathwebsite, 'pathuser' => $pathuser, 'users' => $users]);
+           
 
     }
-    protected function details(Request $request, $id)
+    protected function details( $id)
     {
-        if (Auth::check()) {
-            if ($request->user()->hasRole('setup')) {
-                return redirect('setup');
-            }
-        }
+       
         $pathuser = $this->pathuser;
         $pathwebsite = $this->pathwebsite;
 
@@ -114,13 +81,9 @@ class UserController extends Controller
         return view('website/details', ['pathwebsite' => $pathwebsite, 'pathuser' => $pathuser, 'users' => $users]);
 
     }
-    public function output(Request $request)
+    public function output()
     {
-        if (Auth::check()) {
-            if ($request->user()->hasRole('setup')) {
-                return redirect('setup');
-            }
-        }
+       
 
         $pathuser = $this->pathuser;
         $pathwebsite = $this->pathwebsite;
