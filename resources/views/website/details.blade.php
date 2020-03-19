@@ -26,12 +26,13 @@
     <p><i>{{$users->opleiding}} </i></p>
     <p class="p1"> <i class="fas fa-angle-down"></i></p>
     <div class="container-fluid">
+       
         <div class="row">
             <div class="col-md-6 about1">
                 <h3>About me </h3>
                 <p><i>"{{$users->about}}"</i></p>
             </div>
-            <div class="col-md-5 contact">
+            <div class="col-md-6 contact">
                 <h3> Contact information
                 </h3>
                 <div class="sites">

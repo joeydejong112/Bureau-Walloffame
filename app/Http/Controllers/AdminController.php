@@ -5,6 +5,8 @@ use Redirect;
 
 use Illuminate\Http\Request;
 use App\UpdatePostModel;
+use App\admin_website;
+
 use App\UpdateKlasModel;
 use Auth;
 use App\User;
@@ -25,13 +27,14 @@ class AdminController extends Controller
     public function admin_home (){
        
         // $request->user()->checkRoles('admin');
-
+        $admin_control = admin_website::orderBy('id','asc')
+        ->get();
         $users = UpdatePostModel::orderBy('id','asc')
         ->get();
         $klassen = UpdateKlasModel::orderBy('id','asc')
         ->get();
         
-        return view('admin/admin',['pathuser' => $this->pathuser, 'users' => $users, 'klassen' => $klassen]);
+        return view('admin/admin',['pathuser' => $this->pathuser, 'users' => $users, 'klassen' => $klassen, 'admin_control' => $admin_control]);
         
     }
     public function sort_user($id){
@@ -86,6 +89,14 @@ class AdminController extends Controller
     ]);
     return redirect()->route('admin');
 
+
+   }
+   public function update_admin_website(Request $request){
+    admin_website::where('id', 1)->update([
+        'login' => $request->login,
+        'register' => $request->register
+    ]);
+    return redirect()->route('admin');
 
    }
 }

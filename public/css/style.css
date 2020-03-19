@@ -787,6 +787,30 @@ table a{
 .admin_form{
     width: 30%;
 }
+.project{
+    text-align: center;
+}
+.uit{
+    background-color: red;
+    text-align: center;
+}
+.aan{
+    background-color: green;
+    text-align: center;
+
+}
+.status p {
+    margin-bottom: 0px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+.log_req p{
+    margin-top: 0;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 5px;
+    font-weight: bold;
+}
 @media screen and (max-width: 991px) {
     .dropdown-item {
         text-align: right;

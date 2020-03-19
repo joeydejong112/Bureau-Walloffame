@@ -5,6 +5,7 @@ use Illuminate\Support\Arr;
 
 use App\Http\Controllers\Controller;
 use App\User;
+use App\admin_website;
 use App\UpdateKlasModel;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
@@ -14,25 +15,35 @@ use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Register Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles the registration of new users as well as their
-    | validation and creation. By default this controller uses a trait to
-    | provide this functionality without requiring any additional code.
-    |
-    */
+    protected $casts = [
+    'role' => 'integer',
+];
+   
     public function showRegistrationForm()
 {
     
+$thumbs = admin_website::get() ;
 
-    $klassen = UpdateKlasModel::orderBy('klas', 'asc')
+foreach ($thumbs as $thumbs) {
+    
+    if($thumbs->register == 1){
+        $number = 1;
+    }
+    if($thumbs->register == 0){
+        $number = 0;
+     }
+}
+ 
+    if($number == 1){
+           $klassen = UpdateKlasModel::orderBy('klas', 'asc')
     ->select('klas')
     ->where('zien', 0)
     ->get();    
     return view('auth.register', ['klassen' => $klassen]);
+    }else{
+       return view('errors/register_down')->with('error','Register staat momenteel uit!! ');;
+    }
+ 
 
 }
 
@@ -52,7 +63,6 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $oke = UpdateKlasModel::get();
 
 
         $this->middleware('guest');

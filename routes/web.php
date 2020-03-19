@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,7 +17,7 @@ Route::post('updateUsersLike/{id}/{rank}/{authid}/{klas}','Updateusers@Like');
 
 
 
-Route::middleware(['setup_checker'])->group(function () {
+Route::middleware(['setup_checker','cache_control'])->group(function () {
 
 //bekijk voor setup role | middleware setup_checker redirect naar setup pagina
 Route::get('/klas/{id}', 'UserController@sort');
@@ -50,6 +49,7 @@ Route::get('/admin/user/delete/{id}', 'AdminController@user_delete');
 Route::get('/admin/klas/{id}', 'AdminController@sort_klas')->name('adminklas');
 Route::get('/admin/klas/delete/{id}', 'AdminController@delete_klas');
 Route::post('klasadd','AdminController@add_klas')->name('klasadd');
+Route::post('login_register','AdminController@update_admin_website')->name('login_register');
 
 
 });

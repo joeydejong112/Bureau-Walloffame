@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-
+use App\admin_website;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
@@ -17,6 +17,26 @@ class LoginController extends Controller
     | to conveniently provide its functionality to your applications.
     |
     */
+    public function showLoginForm()
+    {
+        $thumbs = admin_website::get() ;
+
+        foreach ($thumbs as $thumbs) {
+            
+            if($thumbs->register == 1){
+                $number = 1;
+            }
+            if($thumbs->register == 0){
+                $number = 0;
+             }
+        }
+        if($number == 1){
+                  return view('auth.login');
+
+     }else{
+        return view('errors/register_down')->with('error','Login staat momenteel uit!! ');
+     }
+    }
 
     use AuthenticatesUsers;
 

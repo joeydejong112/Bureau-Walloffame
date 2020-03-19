@@ -166,4 +166,62 @@
 
     <button type="submit" name="updateUsersRed" class="btn btn-default">Submit</button>
 </form>
+@foreach ($admin_control as $admin_control)
+
+<h3 class="board">login / register </h3>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 status">
+            <h2>Status login / register</h2>
+            <p>Rood =  uit </p>
+            <p>Groen =  aan </p>
+<div class="log_req">
+            @if($admin_control->login == 0)
+            <p class="uit">Login</p>
+            @else
+            <p class="aan">Login</p>
+            @endif
+
+            @if($admin_control->register == 0)
+            <p class="uit">Register</p>
+            @else
+            <p class="aan">Register</p>
+            @endif
+</div>
+
+
+
+
+        </div>
+        <div class="col-md-6">
+            <form class="admin_klas" action="login_register" method="POST">
+                {!! csrf_field() !!}
+                <label for="text">login</label><br>
+            
+                <input type="radio" id="male" name="login" value="1" required>
+                <label for="male">Aan</label><br>
+                <input type="radio" id="male" name="login" value="0" required>
+                <label for="male">Uit</label><br>
+            
+                <label for="text">register</label><br>
+            
+                <input type="radio" id="male" name="register" value="1" required>
+                <label for="male">Aan</label><br>
+                <input type="radio" id="male" name="register" value="0" required>
+                <label for="male">Uit</label><br>
+            
+            
+            
+                <button type="submit"  class="btn btn-default">Submit</button>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+
+
+@endforeach
+
+
 @endsection

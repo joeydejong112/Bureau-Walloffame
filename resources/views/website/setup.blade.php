@@ -38,7 +38,7 @@
 
             <div class="form-group">
                 <label for="text">Profiel achtergrond:</label>
-                <input type="text" value="{{$users->background}}" name="background" class="form-control" id="text">
+                <input type="text" value="" name="background" class="form-control" id="text" required>
                 <label for="text"><b>Ondersteunt:</b> Links, HEX(#FF5733)</label>
 
             </div>
