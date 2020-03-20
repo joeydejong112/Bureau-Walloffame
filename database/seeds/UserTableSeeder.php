@@ -27,57 +27,7 @@
             $user->save();
             $user->roles()->attach(Role::where('name', 'user')->first());
 
-            $user = new User;
-            $user->name = 'Samuel Jackson';
-            $user->email = 'joe@gmail.com';
-            $user->password = bcrypt('Snoek112');
-            $user->background = 'green';
-            $user->profile_image ='default.png';
-            $user->opleiding = 'webdeveloper';
-            $user->github = '#';
-            $user->gitlab = '#';
-            $user->linkedin = '#';
-            $user->klas = '2md1';
-            $user->about = ' test 1212121';
-            $user->website = 'nog niet opgegevns';
-            $user->contactemail = '523@gmail.com';
-            $user->save();
-            $user->roles()->attach(Role::where('name', 'user')->first());
-
-            $user = new User;
-            $user->name = 'Samuel Jackson';
-            $user->email = 'jo012@gmail.com';
-            $user->password = bcrypt('Snoek112');
-            $user->background = 'green';
-            $user->profile_image ='default.png';
-            $user->opleiding = 'webdeveloper';
-            $user->github = '#';
-            $user->gitlab = '#';
-            $user->linkedin = '#';
-            $user->klas = '2md2';
-            $user->about = ' test 1212121';
-            $user->website = 'nog niet opgegevns';
-            $user->contactemail = '523@gmail.com';
-            $user->save();
-            $user->roles()->attach(Role::where('name', 'user')->first());
-
-
-            $user = new User;
-            $user->name = 'Samuel keer';
-            $user->email = 'joeyde101222@gmail.com';
-            $user->password = bcrypt('Snoek112');
-            $user->background = 'green';
-            $user->profile_image ='default.png';
-            $user->opleiding = 'webdeveloper';
-            $user->github = '#';
-            $user->gitlab = '#';
-            $user->linkedin = '#';
-            $user->klas = '2md1';
-            $user->about = ' test 1212121';
-            $user->website = 'nog niet opgegevns';
-            $user->contactemail = '523@gmail.com';
-            $user->save();
-            $user->roles()->attach(Role::where('name', 'user')->first());
+       
 
             $admin = new User;
             $admin->name = 'Neo Ighodaro';
