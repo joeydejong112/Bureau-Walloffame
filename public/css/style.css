@@ -5,6 +5,7 @@
 body {
 
     background-image: url('../website/background.png');
+    /* background-color: gray; */
     background-size: cover;
 }
 
@@ -21,7 +22,13 @@ body {
     top: 0;
     z-index: 10;
 }
-
+.down{
+    width: 40%;
+    margin: 0 auto;
+    height: 400px;
+}.down iframe{
+    border:none;
+}
 .right {
     position: relative;
 
@@ -810,6 +817,18 @@ table a{
     line-height: 40px;
     border-radius: 5px;
     font-weight: bold;
+}
+.login_button{
+  
+    border-radius: 16px;
+    margin-right: 12px;
+    font-weight: bold;
+
+
+    padding-right: .5rem !important;
+}
+.zien p{
+    color: white;
 }
 @media screen and (max-width: 991px) {
     .dropdown-item {

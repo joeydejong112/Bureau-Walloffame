@@ -51,10 +51,10 @@ class AdminController extends Controller
         return view('admin/admin_klas',['klassen' => $klassen, 'pathuser' =>$this->pathuser]);
     }
     public function user_delete($id){
-       $message = "tets";
       
-    //    {{url('/admin/user/delete/'.$users->id)}}
       UpdatePostModel::find($id)->delete();
+      return redirect()->route('admin');
+
     }
    public function role_update($rank,$targetid){
         if ($rank == "user"){
@@ -80,6 +80,7 @@ class AdminController extends Controller
 
     UpdateKlasModel::find($id)->delete();
     return redirect()->route('admin');
+    
 
    }
    public function add_klas(Request $request){
@@ -99,5 +100,21 @@ class AdminController extends Controller
     return redirect()->route('admin');
 
    }
-  
+  public function show_users($show, $id){
+    if($show == 'show'){
+        UpdatePostModel::where('id', $id)->update([
+            'zien' => '1'
+        ]);
+        return redirect()->route('admin');
+
+    }
+    if($show == 'notshow'){
+        UpdatePostModel::where('id', $id)->update([
+            'zien' => '0'
+        ]);
+        return redirect()->route('admin');
+
+    }
+
+  }
 }

@@ -17,7 +17,7 @@
             <td>ID</td>
             <td>Name</td>
             <td>Email</td>
-            <td></td>
+            <td>Zichtbaar</td>
             <td></td>
         </tr>
         @foreach ($users as $users)
@@ -79,14 +79,62 @@
                 </div>
             </div>
         </div>
+        <div class="modal fade" id="hide{{$users->id}}" tabindex="-1" role="dialog"
+            aria-labelledby="hide{{$users->id}}Label" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="hide{{$users->id}}Label">Wijzig zichtbaarheid voor
+                            gebruiker</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body zien">
+                        <p><b>Status zichtbaarheid</b> <br>
+                            @if($users->zien == 1)
+                            <p class="aan">Is zichtbaar</p>
+
+                            @endif
+                            @if($users->zien == 0)
+                            <p class="uit">Niet zichtbaar</p>
+                            @endif
+                        
+                        
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                      
+
+                        <a href="{{url('/admin/users/notshow/'.$users->id)}}" class="btn bg-danger">Hide</a>
+                        <a href="{{url('/admin/users/show/'.$users->id)}}" class="btn bg-danger">show</a>
+
+                        <a class="btn bg-success" data-dismiss="modal">terug</a>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
         <tr>
             <td>{{$users->id}}</td>
             <td>{{$users->name}}</td>
             <td>{{$users->email}}</td>
+            @if($users->zien == 1)
+            <td>Ja</td>
+
+            @endif
+            @if($users->zien == 0)
+            <td>Nee</td>
+
+            @endif
             <td class="but bg-success"><a href="{{url('/admin/user/'.$users->id)}}">Edit</a> </td>
             <td class="but bg-danger"><a href="#" data-toggle="modal" data-target="#confirm{{$users->id}}">Del</a> </td>
             <td class="but bg-secondary"><a href="#" data-toggle="modal"
                     data-target="#confirm{{$users->id}}{{$users->id}}">Roles</a> </td>
+            <td class="but bg-danger"><a href="#" data-toggle="modal" data-target="#hide{{$users->id}}">hide</a> </td>
+
 
 
 
@@ -103,7 +151,7 @@
         <tr>
             <td>ID</td>
             <td>Name</td>
-            <td>Niet zien</td>
+            <td>Zichtbaar</td>
         </tr>
         @foreach ($klassen as $klassen)
         <div class="modal fade" id="klas{{$klassen->klas}}" tabindex="-1" role="dialog"
@@ -139,7 +187,14 @@
 
             <td>{{$klassen->id}}</td>
             <td>{{$klassen->klas}}</td>
-            <td>{{$klassen->zien}}</td>
+            @if($klassen->zien == 0)
+            <td>Ja</td>
+
+            @endif
+            @if($klassen->zien == 1)
+            <td>Nee</td>
+
+            @endif
             <td class="but bg-success"><a href="{{url('/admin/klas/'.$klassen->id)}}">Edit</a> </td>
             <td class="but bg-danger"><a href="#" data-toggle="modal" data-target="#klas{{$klassen->klas}}">Del</a>
             </td>

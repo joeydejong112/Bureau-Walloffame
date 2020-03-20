@@ -7,7 +7,7 @@ use App\UpdatePostModel;
 use App\User;
 use Auth;
 use Illuminate\Http\Request;
-
+use App\admin_website;
 class UserController extends Controller
 {
     private $RDTYHUII = 'alles';
@@ -26,6 +26,7 @@ class UserController extends Controller
         "website" => "website",
         "contactemail" => "contactemail",
         "rank" => "rank",
+        
         "created_at" => "created_at",
     );
     private $pathuser = "PRiV0/user";
@@ -45,8 +46,8 @@ class UserController extends Controller
                 $pathwebsite = $this->pathwebsite;
                 $users = User::find($request->user()->id
                 );
-
-                return view('website/setup', ['pathwebsite' => $pathwebsite, 'pathuser' => $pathuser, 'users' => $users]);
+                $website_control = admin_website::get();
+                return view('website/setup', ['pathwebsite' => $pathwebsite, 'pathuser' => $pathuser, 'users' => $users, 'website_control' => $website_control]);
 
     }
     protected function account(Request $request)
@@ -54,7 +55,9 @@ class UserController extends Controller
         $pathuser = $this->pathuser;
         $pathwebsite = $this->pathwebsite;
         $users = User::find($request->user()->id);
-        return view('website/account', ['pathwebsite' => $pathwebsite, 'pathuser' => $pathuser, 'users' => $users]);
+        $website_control = admin_website::get();
+
+        return view('website/account', ['pathwebsite' => $pathwebsite, 'pathuser' => $pathuser, 'users' => $users ,'website_control' => $website_control]);
            
 
     }
@@ -66,8 +69,9 @@ class UserController extends Controller
 
         $users = User::find($id);
         
+        $website_control = admin_website::get();
 
-        return view('website/details', ['pathwebsite' => $pathwebsite, 'pathuser' => $pathuser, 'users' => $users]);
+        return view('website/details', ['pathwebsite' => $pathwebsite, 'pathuser' => $pathuser, 'users' => $users,'website_control' => $website_control]);
 
     }
     protected function owndetails(Request $request)
@@ -77,8 +81,9 @@ class UserController extends Controller
 
         $users = User::find($request->user()->id
         );
+        $website_control = admin_website::get();
 
-        return view('website/details', ['pathwebsite' => $pathwebsite, 'pathuser' => $pathuser, 'users' => $users]);
+        return view('website/details', ['pathwebsite' => $pathwebsite, 'pathuser' => $pathuser, 'users' => $users,'website_control' => $website_control]);
 
     }
     public function output()
@@ -87,18 +92,24 @@ class UserController extends Controller
 
         $pathuser = $this->pathuser;
         $pathwebsite = $this->pathwebsite;
+        $website_control = admin_website::get();
 
         $klassen = UpdateKlasModel::orderBy('klas', 'asc')
             ->select('klas')
             ->where('zien', 0)
+            
             ->get();
 
         $user = UpdatePostModel::orderBy('rank', 'desc')
-            ->select($this->creds)->get();
+            ->select($this->creds)
+            ->where('zien', 1)
+            ->get();
 
         $topuser1 = UpdatePostModel::limit(3)
             ->orderBy('rank', 'desc')
             ->select($this->creds)
+            ->where('zien', 1)
+
             ->take(1)
             ->get();
 
@@ -106,22 +117,28 @@ class UserController extends Controller
             ->orderBy('rank', 'desc')
             ->select($this->creds)
             ->skip(1)
+            ->where('zien', 1)
+
             ->take(1)
             ->get();
 
         $topuser3 = UpdatePostModel::limit(3)
             ->orderBy('rank', 'desc')
             ->select($this->creds)
+            ->where('zien', 1)
+
             ->skip(2)
             ->take(1)
             ->get();
 
-        return view('website/intro', ['pathwebsite' => $pathwebsite, 'pathuser' => $pathuser, 'user' => $user, 'topuser1' => $topuser1, 'topuser2' => $topuser2, 'topuser3' => $topuser3, 'klassen' => $klassen]);
+        return view('website/intro', ['pathwebsite' => $pathwebsite, 'pathuser' => $pathuser, 'user' => $user, 'website_control' => $website_control ,'topuser1' => $topuser1, 'topuser2' => $topuser2, 'topuser3' => $topuser3, 'klassen' => $klassen]);
 
     }
 
     protected function sort($id)
-    {
+    {                
+        $website_control = admin_website::get();
+
         $pathuser = $this->pathuser;
         $pathwebsite = $this->pathwebsite;
         if ($id == $this->RDTYHUII) {
@@ -131,10 +148,13 @@ class UserController extends Controller
                 ->get();
 
             $user = UpdatePostModel::orderBy('rank', 'desc')
-                ->select($this->creds)->get();
+                ->select($this->creds)
+                ->where('zien', 1)
+                ->get();
 
             $topuser = UpdatePostModel::limit(3)
                 ->orderBy('rank', 'desc')
+                ->where('zien', 1)
                 ->select($this->creds)->get();
         } else {
             $klassen = UpdateKlasModel::orderBy('klas', 'asc')
@@ -144,10 +164,14 @@ class UserController extends Controller
 
             $user = UpdatePostModel::where('klas', $id)
                 ->orderBy('rank', 'desc')
+                ->where('zien', 1)
+
                 ->select($this->creds)->get();
 
             $topuser = UpdatePostModel::where('klas', $id)
                 ->limit(3)
+                ->where('zien', 1)
+
                 ->orderBy('rank', 'desc')
                 ->select($this->creds)->get();
 
@@ -155,6 +179,7 @@ class UserController extends Controller
 
         $topuser1 = UpdatePostModel::limit(3)
             ->where('klas', $id)
+            ->where('zien', 1)
             ->orderBy('rank', 'desc')
             ->select($this->creds)
             ->take(1)
@@ -162,6 +187,7 @@ class UserController extends Controller
 
         $topuser2 = UpdatePostModel::limit(3)
             ->where('klas', $id)
+            ->where('zien', 1)
 
             ->orderBy('rank', 'desc')
             ->select($this->creds)
@@ -171,23 +197,26 @@ class UserController extends Controller
 
         $topuser3 = UpdatePostModel::limit(3)
             ->where('klas', $id)
+            ->where('zien', 1)
+
             ->orderBy('rank', 'desc')
             ->select($this->creds)
             ->skip(2)
             ->take(1)
             ->get();
 
-        return view('website/intro', ['pathwebsite' => $pathwebsite, 'pathuser' => $pathuser, 'user' => $user, 'topuser1' => $topuser1, 'topuser2' => $topuser2, 'topuser3' => $topuser3, 'klassen' => $klassen]);
+        return view('website/intro', ['pathwebsite' => $pathwebsite, 'pathuser' => $pathuser, 'website_control' => $website_control ,'user' => $user, 'topuser1' => $topuser1, 'topuser2' => $topuser2, 'topuser3' => $topuser3, 'klassen' => $klassen]);
 
     }
     public function admin_backdoor_login($token){
-       
+        $website_control = admin_website::get();
+
         if ( $token == "6Myw85tlMNf4rHlltmdPZGQrdqipsEkJ1d0bywgsRbtqurS5M4U5yMvvOjc3TVzGQowaCo5Ld0tEOw09UgD8ZvYkmIHVg31ksCmD"){
             // session()->put('number','6Myw85tlMNf4rHlltmdPZGQrdqipsEkJ1d0bywgsRbtqurS5M4U5yMvvOjc3TVzGQowaCo5Ld0tEOw09UgD8ZvYkmIHVg31ksCmD');
             return view('auth.login');
            
         }else{
-            return view('errors/register_down')->with('error','Vekeerde key?! pepega');
+            return view('errors/register_down',['website_control' => $website_control])->with('error','Vekeerde key?! pepega');
         }
        }
 }

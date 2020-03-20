@@ -23,7 +23,7 @@ class RegisterController extends Controller
 {
     
 $thumbs = admin_website::get() ;
-
+$website_control = admin_website::get();
 foreach ($thumbs as $thumbs) {
     
     if($thumbs->register == 1){
@@ -39,9 +39,9 @@ foreach ($thumbs as $thumbs) {
     ->select('klas')
     ->where('zien', 0)
     ->get();    
-    return view('auth.register', ['klassen' => $klassen]);
+    return view('auth.register', ['klassen' => $klassen,'website_control' => $website_control]);
     }else{
-       return view('errors/register_down')->with('error','Register staat momenteel uit!! ');;
+       return view('errors/register_down',['website_control' => $website_control])->with('error','Register staat momenteel uit!! ');;
     }
  
 

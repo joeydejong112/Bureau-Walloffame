@@ -37,9 +37,25 @@
                 @yield('buttons')
                 {{-- Guest --}}
                 @guest
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+
+
+                @foreach ($website_control as $website_control) 
+                    @if($website_control->login == 1)
+                     <li class="nav-item ">
+                        <a class="nav-link login_button" href="{{ route('login') }}">{{ __('Login') }}</a>
                     </li>
+                    @endif
+                    @if($website_control->register == 1)
+                    <li class="nav-item ">
+                        <a class="nav-link login_button" href="{{ route('register') }}">{{ __('register') }}</a>
+                    </li>
+                    @endif
+
+
+                @endforeach
+                
+                   
+                   
                 @else {{-- Als geen gast is(login dus) --}}
                     <li class="nav-item ">
                         <a style="color:black;padding:0px;" id="navbarDropdown" class="nav-link dropdown-toggle" href="#"
@@ -78,6 +94,7 @@
             </ul>
         </div>
     </nav>
+
     @if (trim($__env->yieldContent('topusers')))
         <div class="container-fluid">
             <div class="row topusers">

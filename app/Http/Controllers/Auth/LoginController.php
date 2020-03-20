@@ -18,23 +18,23 @@ class LoginController extends Controller
     |
     */
     public function showLoginForm()
-    {
+    {   $website_control = admin_website::get();
         $thumbs = admin_website::get() ;
 
         foreach ($thumbs as $thumbs) {
             
-            if($thumbs->register == 1){
+            if($thumbs->login == 1){
                 $number = 1;
             }
-            if($thumbs->register == 0){
+            if($thumbs->login == 0){
                 $number = 0;
              }
         }
         if($number == 1){
-                  return view('auth.login');
+                  return view('auth.login',['website_control' => $website_control ]);
 
      }else{
-        return view('errors/register_down')->with('error','Login staat momenteel uit!! ');
+        return view('errors/register_down',['website_control' => $website_control ])->with('error','Login staat momenteel uit!! ');
      }
     }
 

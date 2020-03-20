@@ -47,6 +47,8 @@ Route::get('/admin/rank/{rank}/{targetid}', 'AdminController@role_update');
 Route::get('/admin/user/{id}', 'AdminController@sort_user');
 Route::get('/admin/user/delete/{id}', 'AdminController@user_delete');
 
+Route::get('/admin/users/{show}/{id}', 'AdminController@show_users');
+
 Route::get('/admin/klas/{id}', 'AdminController@sort_klas')->name('adminklas');
 Route::get('/admin/klas/delete/{id}', 'AdminController@delete_klas');
 Route::post('klasadd','AdminController@add_klas')->name('klasadd');
