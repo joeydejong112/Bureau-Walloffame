@@ -36,6 +36,7 @@ class CreateUsersTable extends Migration
             $table->integer('rank')->default($this->niks);
             $table->boolean('klas_vote')->default($this->niks);
             $table->boolean('global_vote')->default($this->niks);
+            $table->boolean('zien')->default(1);
             $table->timestamps();
         });
       
