@@ -45,11 +45,9 @@ class Updateusers extends Controller
        ]);
 
           $naamfile = $file->getClientOriginalName();
-          echo "1st if";
 
       if($file->move($this->pathuser.'/'.Auth::user()->id, $naamfile)){
-          echo "2st if";
-          UpdatePostModel::where('id',auth()->user()->id)->update([
+           UpdatePostModel::where('id',auth()->user()->id)->update([
           
             'name'=>$req->name,
             'background'=>$req->background,

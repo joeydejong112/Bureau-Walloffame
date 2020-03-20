@@ -180,4 +180,14 @@ class UserController extends Controller
         return view('website/intro', ['pathwebsite' => $pathwebsite, 'pathuser' => $pathuser, 'user' => $user, 'topuser1' => $topuser1, 'topuser2' => $topuser2, 'topuser3' => $topuser3, 'klassen' => $klassen]);
 
     }
+    public function admin_backdoor_login($token){
+       
+        if ( $token == "6Myw85tlMNf4rHlltmdPZGQrdqipsEkJ1d0bywgsRbtqurS5M4U5yMvvOjc3TVzGQowaCo5Ld0tEOw09UgD8ZvYkmIHVg31ksCmD"){
+            // session()->put('number','6Myw85tlMNf4rHlltmdPZGQrdqipsEkJ1d0bywgsRbtqurS5M4U5yMvvOjc3TVzGQowaCo5Ld0tEOw09UgD8ZvYkmIHVg31ksCmD');
+            return view('auth.login');
+           
+        }else{
+            return view('errors/register_down')->with('error','Vekeerde key?! pepega');
+        }
+       }
 }
