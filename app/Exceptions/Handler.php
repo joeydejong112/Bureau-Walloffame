@@ -3,6 +3,8 @@
 namespace App\Exceptions;
 
 use Exception;
+use App\admin_website;
+
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
 class Handler extends ExceptionHandler
@@ -46,19 +48,21 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        $website_control = admin_website::get();
+
         if ($this->isHttpException($exception)) {
             if ($exception->getStatusCode() == 404) {
-                return response()->view('errors.' . '404', [], 404);
+                return response()->view('errors/404',['website_control' => $website_control]);
             }
              
-            if ($exception->getStatusCode() == 500) {
-                return response()->view('errors.' . '500', [], 500);
-            }
-            if ( $exception instanceof \Illuminate\Database\QueryException ) {
-                return response()->view('errors.' . 'query', [], 500);
-                //Or
-                dump($e->errorInfo);
-            } 
+            // if ($exception->getStatusCode() == 500) {
+            //     return response()->view('errors.' . '500', [], 500);
+            // }s
+            // if ( $exception instanceof \Illuminate\Database\QueryException ) {
+            //     return response()->view('errors.' . 'query', [], 500);
+            //     //Or
+            //     dump($e->errorInfo);
+            // } 
         }
      
         return parent::render($request, $exception);
