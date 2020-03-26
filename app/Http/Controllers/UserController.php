@@ -213,7 +213,7 @@ class UserController extends Controller
 
         if ( $token == "6Myw85tlMNf4rHlltmdPZGQrdqipsEkJ1d0bywgsRbtqurS5M4U5yMvvOjc3TVzGQowaCo5Ld0tEOw09UgD8ZvYkmIHVg31ksCmD"){
             // session()->put('number','6Myw85tlMNf4rHlltmdPZGQrdqipsEkJ1d0bywgsRbtqurS5M4U5yMvvOjc3TVzGQowaCo5Ld0tEOw09UgD8ZvYkmIHVg31ksCmD');
-            return view('auth.login');
+            return view('auth.login',['pathwebsite' => $this->pathwebsite, 'pathuser' => $this->pathuser, 'website_control' => $website_control]);
            
         }else{
             return view('errors/register_down',['website_control' => $website_control,'pathuser' => $this->pathuser])->with('error','Vekeerde key?! pepega');

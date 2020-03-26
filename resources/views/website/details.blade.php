@@ -36,9 +36,26 @@
                 <h3> Contact information
                 </h3>
                 <div class="sites">
+
+
+                    @if ($users->github != "#empty")
                     <a href="{{$users->github}}"><i class="fab fa-github"></i></a>
-                    <a href="{{$users->gitlab}}"> <i class="fab fa-gitlab"></i></a>
+
+                    @else
+
+                    @endif
+                    @if ($users->linkedin != "#empty")
                     <a href="{{$users->linkedin}}"> <i class="fab fa-linkedin-in"></i></a>
+
+                    @else
+
+                    @endif
+                    @if ($users->gitlab != "#empty")
+                    <a href="{{$users->gitlab}}"> <i class="fab fa-gitlab"></i></a>
+
+                    @else
+
+                    @endif
                 </div>
                 <div class="sites2">
                     <p>
@@ -58,21 +75,38 @@
         <i style="color:red;" class="fa fa-heart"></i>
     </div>
 @else
-    <form class="likes_form" method="POST" action="{{ action('Updateusers@Like',[
-    'id'=> $users->id,
-    'rank' =>$users->rank,
-    'authid'=>Auth::user()->id,
-    'klas'=>$users->klas
-    ])}}">
-        @csrf
-        <div class="form-group" style="margin-bottom: 0px">
+
+        @if(Auth::id() == $users->id)
+        <div class="form-group detail_like_guest">
             <label for="text">{{$users->rank}} Likes</label>
-            @include('errors/flash')
+            <i style="color:red;" class="fa fa-heart"></i>
         </div>
-        <button type="submit" class="button button-like">
-            <i class="fa fa-heart"></i>
-            <span>Like</span>
-        </button>
-    </form>
+            
+        @else
+        <form class="likes_form" method="POST" action="{{ action('Updateusers@Like',[
+            'id'=> $users->id,
+            'rank' =>$users->rank,
+            'authid'=>Auth::user()->id,
+            'klas'=>$users->klas
+            ])}}">
+                @csrf
+                <div class="form-group" style="margin-bottom: 0px">
+                    <label for="text">{{$users->rank}} Likes</label>
+                    @include('errors/flash')
+                </div>
+                <button type="submit" class="button button-like">
+                    <i class="fa fa-heart"></i>
+                    <span>Like</span>
+                </button>
+            </form>
+
+
+
+                    
+        @endif
+
+        
+
+            
 @endguest
 @endsection

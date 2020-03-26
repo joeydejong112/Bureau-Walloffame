@@ -54,6 +54,8 @@ class Kernel extends HttpKernel
         'admin' => \App\Http\Middleware\adminchecker::class,
         'setup_checker' => \App\Http\Middleware\setupchecker::class,
         'cache_control' => \App\Http\Middleware\CacheGlobal::class,
+        'rev_setup_checker' => \App\Http\Middleware\reverse_setup_checker::class,
+
 
 
         'auth' => \App\Http\Middleware\Authenticate::class,

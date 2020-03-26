@@ -36,11 +36,25 @@ class Updateusers extends Controller
       }
   }
 
+//check of github / gitlab /linkedin link empty is
+    if($req->github == null){
+      $req->github = "#empty";
+    }  
+    if($req->gitlab == null){
+      $req->gitlab = "#empty";
+    }
+    if($req->linkedin == null){
+      $req->linkedin = "#empty";
+    }
+
+
+
+    
     if ($file = $req->file('profile_image')){
       
       request()->validate([
 
-        'profile_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:9000',
+        'profile_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2000',
 
        ]);
 

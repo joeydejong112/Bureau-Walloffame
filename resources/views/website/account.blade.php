@@ -42,23 +42,29 @@
                           <img class="col-sm-6" id="preview"  src=""> 
 
                      <div class="form-group">
-                        <label for="text">opleiding:</label>
+                        <label for="text">Opleiding:</label>
                         <input type="text" value="{{$users->opleiding}}" name="opleiding"
                             class="form-control" id="text">
                     </div>
                     <div class="form-group">
-                        <label for="text">github</label>
+                        <label for="text">Github</label>
                         <input type="text" value="{{$users->github}}" name="github" class="form-control"
                             id="text">
+                            <label for="text"><b>Note:</b>Laat leeg als je het het niet hebt</label>
+
                     </div> <div class="form-group">
-                        <label for="text">gitlab</label>
+                        <label for="text">Gitlab</label>
                         <input type="text" value="{{$users->gitlab}}" name="gitlab" class="form-control"
                             id="text">
+                            <label for="text"><b>Note:</b>Laat leeg als je het het niet hebt</label>
+
                     </div> 
                     <div class="form-group">
                         <label for="text">LinkedIn</label>
                         <input type="text" value="{{$users->github}}" name="linkedin" class="form-control"
                             id="text">
+                            <label for="text"><b>Note:</b>Laat leeg als je het het niet hebt</label>
+
                     </div>
                     <div class="form-group">
                         <label for="text">About</label>
@@ -75,7 +81,7 @@
                         <input type="text" value="{{$users->contactemail}}" name="contactemail" class="form-control"
                             id="text">
                     </div> 
-                    <button type="submit" name="updateUsersRed" class="btn btn-default">Submit</button>
+                    <button type="submit" name="updateUsersRed" class="btn btn-default">Wijzig gegevens</button>
                 </form>
             </p>
 
