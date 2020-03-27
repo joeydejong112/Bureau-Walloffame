@@ -12,8 +12,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script> 
     <script src="https://kit.fontawesome.com/d24ca64b2d.js" crossorigin="anonymous"></script>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    {{-- <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> --}}
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <title>Wall of Fame</title>
 </head>return false
@@ -35,9 +35,9 @@
         </div>
         <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar7">
             <ul class="navbar-nav ml-auto flex-nowrap">
-                {{-- Buttons --}}
+               
                 @yield('buttons')
-                {{-- Guest --}}
+                
                 @guest
 
 
@@ -58,7 +58,7 @@
                 
                    
                    
-                @else {{-- Als geen gast is(login dus) --}}
+                @else 
                     <li class="nav-item ">
                         <a style="color:black;padding:0px;" id="navbarDropdown" class="nav-link dropdown-toggle" href="#"
                             role="button" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false" v-pre>
@@ -92,7 +92,6 @@
                         </div>
                     </li>
                 @endguest
-                 {{-- End guest --}}
             </ul>
         </div>
     </nav>
