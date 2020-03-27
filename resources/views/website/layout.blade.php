@@ -25,7 +25,7 @@
             <a style="color:black;" class="navbar-brand mr-5" href="/home">
                 Grafisch lyceum / Wall of fame
             </a>
-            <div class="w-100 text-right">
+            <div class="w-100 text-right _resp_">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar7">
                     <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
                 </button>

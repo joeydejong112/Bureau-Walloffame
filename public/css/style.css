@@ -852,6 +852,16 @@ table a{
         width: 100%!important;
 
     }
+    .d-block{
+        width: 0px!important;
+    }
+    ._resp_{
+    width: 0px!important;
+    }
+    .flex-grow-1{
+            flex-grow: 0!important; 
+
+    }
    .topusers a{
        width: 100%!important;
    }
