@@ -852,21 +852,33 @@ table a{
         width: 100%!important;
 
     }
+    .board_top {
+        padding-bottom: 50%;
+
+    }
+    .board{
+        margin-top: 13px;
+
+    }
     .d-block{
         width: 0px!important;
     }
     ._resp_{
-    width: 0px!important;
+    width: 0px!important; 
     }
-    .flex-grow-1{
-            flex-grow: 0!important; 
-
+    .row{
+        margin: 0px!important;
+    }
+    .fixed-top{
+        padding: 6px!important;
+        padding-right: 0px!important;
     }
    .topusers a{
        width: 100%!important;
    }
    .card_user{
        width: 94%!important;
+       margin: 0 auto;
    }
    .additional{
     width: 27%!important;
@@ -879,7 +891,6 @@ table a{
        width: 100%;
    }
    .container-fluid{
-       padding: 0px!important;
    }
    .user-card img{
     width: 88px;

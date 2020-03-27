@@ -18,6 +18,8 @@
     <title>Wall of Fame</title>
 </head>return false
 <body oncontextmenu="">
+    <div class="container-fluid">
+        <div class="row">
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="d-flex flex-grow-1">
             <span class="w-100 d-lg-none d-block">
@@ -94,7 +96,8 @@
             </ul>
         </div>
     </nav>
-
+        </div>
+    </div>
     @if (trim($__env->yieldContent('topusers')))
         <div class="container-fluid">
             <div class="row topusers">
