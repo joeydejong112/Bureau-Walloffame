@@ -107,7 +107,7 @@
     @endif
     @if (trim($__env->yieldContent('users')))
         <div class="container-fluid">
-            <div class="row">
+            <div class="row user_resp">
                 @yield('users')
             </div>
         </div>

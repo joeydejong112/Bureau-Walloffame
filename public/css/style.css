@@ -7,6 +7,7 @@ body {
     background-image: url('../website/background.png');
     /* background-color: gray; */
     background-size: cover;
+
 }
 
 /* width */
@@ -846,4 +847,53 @@ table a{
 
     }
 }
+@media screen and (max-width: 568px) {
+    .user_resp a{
+        width: 100%!important;
 
+    }
+   .topusers a{
+       width: 100%!important;
+   }
+   .card_user{
+       width: 94%!important;
+   }
+   .additional{
+    width: 27%!important;
+   }
+   .general{
+       width: 67%!important;
+   }
+   .responsive_mobile_top{
+       margin: 0 auto!important;
+       width: 100%;
+   }
+   .container-fluid{
+       padding: 0px!important;
+   }
+   .user-card img{
+    width: 88px;
+    margin: 0 auto;
+    margin-top: 23px;
+    margin-left: 17%;
+    /* vertical-align: baseline; */
+    /* margin-left: 4px; */
+    padding: 9px;
+    height: 88px;
+    border-radius: 50%;
+   }
+}
+
+@media screen and (max-width: 416px) {
+
+    .user-card{
+        width: 100%!important;
+    }
+    .user-card img{
+        margin-left: 0px!important;
+        width: 100%;
+      
+       
+        height: auto;
+    }
+}
