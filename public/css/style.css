@@ -792,6 +792,10 @@ table a{
 
 
 }
+.navbar-toggler-icon{
+    line-height: 1.5em;
+
+}
 .admin_form{
     width: 30%;
 }
@@ -853,32 +857,24 @@ table a{
 
     }
     .board_top {
-        padding-bottom: 50%;
+        padding-bottom: 69%;
 
     }
     .board{
-        margin-top: 13px;
+        margin-top: 54px;
 
     }
-    .d-block{
-        width: 0px!important;
-    }
-    ._resp_{
-    width: 0px!important; 
-    }
-    .row{
-        margin: 0px!important;
-    }
-    .fixed-top{
-        padding: 6px!important;
-        padding-right: 0px!important;
-    }
+    
+  
+ 
    .topusers a{
        width: 100%!important;
    }
    .card_user{
        width: 94%!important;
        margin: 0 auto;
+       margin-top: 25px;
+    margin-bottom: 25px;
    }
    .additional{
     width: 27%!important;
@@ -886,12 +882,8 @@ table a{
    .general{
        width: 67%!important;
    }
-   .responsive_mobile_top{
-       margin: 0 auto!important;
-       width: 100%;
-   }
-   .container-fluid{
-   }
+   
+  
    .user-card img{
     width: 88px;
     margin: 0 auto;
@@ -917,4 +909,18 @@ table a{
        
         height: auto;
     }
+}
+@media screen and (max-width: 380px) {
+
+.navbar{
+    padding-left: 7px;
+
+}
+.navbar-brand{
+    margin-right: 1rem!important;
+
+}
+.general{
+    padding-bottom: 20px!important;
+}
 }
