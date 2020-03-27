@@ -206,7 +206,7 @@
 <h3 class="board">Alle Studenten </h3>
 @foreach($user as $user)
 <a href="{{ url('/details/'.$user->id) }}" style="margin:0 auto;">
-    <div class="card_user " data-aos="zoom-in-left">
+    <div class="card_user " data-aos="zoom-in-left" data-aos-disable="mobile">
         <div class="additional">
             <div class="user-card">
                 @if ($user->profile_image == 'default.png')
