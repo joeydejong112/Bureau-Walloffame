@@ -9,7 +9,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::middleware(['rev_setup_checker'])->group(function () {
+Route::middleware(['rev_setup_checker','cache_control'])->group(function () {
 
 Route::get('/setup', 'UserController@setup' )->name('setup');
 

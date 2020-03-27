@@ -21,7 +21,7 @@
                     <div class="form-group">
                         <label for="text">Naam</label>
                         <input type="text" value="{{$users->name}}" name="name" class="form-control"
-                            id="text">
+                        id="text">
                     </div>
 
                     <div class="form-group">
@@ -36,7 +36,7 @@
                         <label for="text">Profiel foto:</label>
                         <input type="file" value="{{$users->profile_image}}" name="profile_image" class="form-control"
                             id="text">
-                        <label for="text"><b>supported:</b> jpeg,png,jpg,gif,svg max 2MB</label>
+                        <label for="text"><b>Ondersteunt:</b> jpeg,png,jpg,gif,svg max 2MB</label>
 
                     </div>
                           <img class="col-sm-6" id="preview"  src=""> 
@@ -67,12 +67,12 @@
 
                     </div>
                     <div class="form-group">
-                        <label for="text">About</label>
+                        <label for="text">Over me zelf</label>
                         <input type="text" value="{{$users->about}}" name="about" class="form-control textbox"
                             id="text">
                     </div> 
                     <div class="form-group">
-                        <label for="text">Website</label>
+                        <label for="text">Enige persoonlijke website</label>
                         <input type="text" value="{{$users->website}}" name="website" class="form-control"
                             id="text">
                     </div>
@@ -81,7 +81,7 @@
                         <input type="text" value="{{$users->contactemail}}" name="contactemail" class="form-control"
                             id="text">
                     </div> 
-                    <button type="submit" name="updateUsersRed" class="btn btn-default">Wijzig gegevens</button>
+                    <button type="submit" name="updateUsersRed" class="btn btn-primary">Wijzig gegevens</button>
                 </form>
             </p>
 

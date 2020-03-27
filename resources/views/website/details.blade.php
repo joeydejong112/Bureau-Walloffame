@@ -2,7 +2,7 @@
 
 @section('footer')
 <footer>
-    <span> &copy;</span> Grafisch Lyceum Utrecht 2020 made with <i style="color:red;" class="fas fa-heart"></i>
+    <span> &copy;</span> Grafisch Lyceum Utrecht 2020 gemaakt met <i style="color:red;" class="fas fa-heart"></i>
 </footer>
 @endsection
 
@@ -29,7 +29,7 @@
        
         <div class="row">
             <div class="col-md-6 about1">
-                <h3>About me </h3>
+                <h3>Over mij </h3>
                 <p><i>"{{$users->about}}"</i></p>
             </div>
             <div class="col-md-6 contact">
@@ -58,11 +58,18 @@
                     @endif
                 </div>
                 <div class="sites2">
+                   
                     <p>
                         <i class="fas fa-envelope">: {{$users->contactemail}}</i><br>
-                        <a href="https://{{$users->website}}/"> <i class="fas fa-globe-europe">:
-                                {{$users->website}}</i>
-                        </a>
+
+                        @if($users->website != "#empty")
+                        <a href="//{{$users->website}}"> <i class="fas fa-globe-europe">:
+                                                        {{$users->website}}</i>
+                                                </a>
+                        @else
+                         
+                        @endif
+                      
                     </p>
                 </div>
             </div>

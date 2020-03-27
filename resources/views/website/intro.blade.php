@@ -4,6 +4,9 @@
 {{-- Section buttons --}}
 @section('buttons')
 
+
+
+{{-- {{dd(Auth::user()->hasRole('admin'))}} --}}
 <li class="nav-item t text-left">
     <a href="{{ url('/home') }}" class="dropdown-item">Alles</a>
     </a>
@@ -15,6 +18,15 @@
 </li>
 
 @endforeach
+@if(Auth::check())
+    @if(Auth::user()->hasRole('admin') == TRUE)
+    <li class="nav-item t text-left">
+        <a href="{{ url('/admin') }}" class="dropdown-item" style="color: red!important">Admin Panel</a>
+        </a>
+    </li>
+    @endif
+@endif
+
 @endsection{{-- end section buttons --}}
 
 {{--  SECTION TOPUSERS --}}
@@ -44,7 +56,7 @@
                 </div>
             </div>
             <div class="more-info">
-                <h1>{{$topuser1->name}}</h1>
+                <h2>{{$topuser1->name}}</h2>
                 <div class="coords">
                     <span>Klas: {{$topuser1->klas}}</span>
                     <span>{{$topuser1->opleiding}}</span>
@@ -55,21 +67,37 @@
                     <span></span>
                 </div>
                 <div class="stats">
+                    @if ($topuser1->github != "#empty")
                     <div>
                         <div class="title">GitHub</div>
                         <i class="fab fa-github-square"></i>
                         <div class="value"></div>
                     </div>
-                    <div>
-                        <div class="title">Gitlab</div>
-                        <i class="fab fa-gitlab"></i>
-                        <div class="value"></div>
-                    </div>
+
+                    @else
+
+                    @endif
+                    @if ($topuser1->linkedin != "#empty")
                     <div>
                         <div class="title">linkedin</div>
                         <i class="fab fa-linkedin"></i>
                         <div class="value"></div>
                     </div>
+
+                    @else
+
+                    @endif
+                    @if ($topuser1->gitlab != "#empty")
+                   <div>
+                        <div class="title">Gitlab</div>
+                        <i class="fab fa-gitlab"></i>
+                        <div class="value"></div>
+                    </div>
+
+                    @else
+
+                    @endif
+
                 </div>
             </div>
         </div>
@@ -102,7 +130,7 @@
                 </div>
             </div>
             <div class="more-info">
-                <h1>{{$topuser2->name}}</h1>
+                <h2>{{$topuser2->name}}</h2>
                 <div class="coords">
                     <span>Klas: {{$topuser2->klas}}</span>
                     <span>{{$topuser2->opleiding}}</span>
@@ -113,21 +141,40 @@
                     <span></span>
                 </div>
                 <div class="stats">
+                    @if ($topuser2->github != "#empty")
                     <div>
                         <div class="title">GitHub</div>
                         <i class="fab fa-github-square"></i>
                         <div class="value"></div>
                     </div>
-                    <div>
-                        <div class="title">Gitlab</div>
-                        <i class="fab fa-gitlab"></i>
-                        <div class="value"></div>
-                    </div>
+
+                    @else
+
+                    @endif
+                    @if ($topuser2->linkedin != "#empty")
                     <div>
                         <div class="title">linkedin</div>
                         <i class="fab fa-linkedin"></i>
                         <div class="value"></div>
                     </div>
+
+                    @else
+
+                    @endif
+                    @if ($topuser2->gitlab != "#empty")
+                   <div>
+                        <div class="title">Gitlab</div>
+                        <i class="fab fa-gitlab"></i>
+                        <div class="value"></div>
+                    </div>
+
+                    @else
+
+                    @endif
+
+                   
+                   
+                   
                 </div>
             </div>
         </div>
@@ -162,7 +209,7 @@
                 </div>
             </div>
             <div class="more-info">
-                <h1>{{$topuser3->name}}</h1>
+                <h2>{{$topuser3->name}}</h2>
                 <div class="coords">
                     <span>Klas: {{$topuser3->klas}}</span>
                     <span>{{$topuser3->opleiding}}</span>
@@ -173,21 +220,40 @@
                     <span></span>
                 </div>
                 <div class="stats">
+                    @if ($topuser3->github != "#empty")
                     <div>
                         <div class="title">GitHub</div>
                         <i class="fab fa-github-square"></i>
                         <div class="value"></div>
                     </div>
-                    <div>
-                        <div class="title">Gitlab</div>
-                        <i class="fab fa-gitlab"></i>
-                        <div class="value"></div>
-                    </div>
+
+                    @else
+
+                    @endif
+                    @if ($topuser3->linkedin != "#empty")
                     <div>
                         <div class="title">linkedin</div>
                         <i class="fab fa-linkedin"></i>
                         <div class="value"></div>
                     </div>
+
+                    @else
+
+                    @endif
+                    @if ($topuser3->gitlab != "#empty")
+                   <div>
+                        <div class="title">Gitlab</div>
+                        <i class="fab fa-gitlab"></i>
+                        <div class="value"></div>
+                    </div>
+
+                    @else
+
+                    @endif
+
+                   
+                   
+                   
                 </div>
             </div>
         </div>
@@ -222,7 +288,7 @@
                 </div>
             </div>
             <div class="more-info">
-                <h1>{{$user->name}}</h1>
+                <h2>{{$user->name}}</h2>
                 <div class="coords">
                     <span>Klas: {{$user->klas}}</span>
                     <span>{{$user->opleiding}}</span>
@@ -233,21 +299,40 @@
                     <span></span>
                 </div>
                 <div class="stats">
+                    @if ($user->github != "#empty")
                     <div>
                         <div class="title">GitHub</div>
                         <i class="fab fa-github-square"></i>
                         <div class="value"></div>
                     </div>
-                    <div>
-                        <div class="title">Gitlab</div>
-                        <i class="fab fa-gitlab"></i>
-                        <div class="value"></div>
-                    </div>
+
+                    @else
+
+                    @endif
+                    @if ($user->linkedin != "#empty")
                     <div>
                         <div class="title">linkedin</div>
                         <i class="fab fa-linkedin"></i>
                         <div class="value"></div>
                     </div>
+
+                    @else
+
+                    @endif
+                    @if ($user->gitlab != "#empty")
+                   <div>
+                        <div class="title">Gitlab</div>
+                        <i class="fab fa-gitlab"></i>
+                        <div class="value"></div>
+                    </div>
+
+                    @else
+
+                    @endif
+
+                   
+                   
+                   
                 </div>
             </div>
         </div>

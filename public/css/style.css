@@ -124,12 +124,29 @@ img {
     height: 368px;
 
 }
+.card{
+    box-shadow: -5px 4px 29px -18px rgba(0, 0, 0, 0.75);
 
+}
+.topusers a{
+    height: max-content;
+  }
+  b, strong {
+    font-weight: 500;
+}
+  .user_resp a{
+      height: max-content;
+  }
+  .bold{
+      font-weight: bold;
+  }
 a {
     color: black !important;
     text-decoration: none;
 }
-
+.dropdown-item.active, .dropdown-item:active {
+background-color: transparent!important;
+}
 a:hover {
     color: black !important;
     text-decoration: none;
@@ -621,12 +638,12 @@ button:hover {
     height: 100%;
 }
 
-.card_user .additional .more-info h1 {
+.card_user .additional .more-info h2 {
     color: #fff;
     margin-bottom: 0;
-}
+padding-left: 15px;}
 
-.card_user .green .additional .more-info h1 {
+.card_user .green .additional .more-info h2 {
     color: #224C36;
 }
 
@@ -864,9 +881,6 @@ table a{
         margin-top: 54px;
 
     }
-    
-  
- 
    .topusers a{
        width: 100%!important;
    }
@@ -885,14 +899,14 @@ table a{
    
   
    .user-card img{
-    width: 88px;
+    max-width: 88px;
     margin: 0 auto;
     margin-top: 23px;
-    margin-left: 17%;
+    margin-left: 15%;
     /* vertical-align: baseline; */
     /* margin-left: 4px; */
     padding: 9px;
-    height: 88px;
+    max-height: 88px;
     border-radius: 50%;
    }
 }

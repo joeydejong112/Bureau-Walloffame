@@ -6,7 +6,6 @@ use Redirect;
 use Illuminate\Http\Request;
 use App\UpdatePostModel;
 use App\admin_website;
-
 use App\UpdateKlasModel;
 use Auth;
 use App\User;
@@ -25,13 +24,14 @@ class AdminController extends Controller
 
     }
     public function admin_home (){
-       
+        
         // $request->user()->checkRoles('admin');
         $admin_control = admin_website::orderBy('id','asc')
         ->get();
         $users = UpdatePostModel::orderBy('id','asc')
         ->get();
         $klassen = UpdateKlasModel::orderBy('id','asc')
+        
         ->get();
         
         return view('admin/admin',['pathuser' => $this->pathuser, 'users' => $users, 'klassen' => $klassen, 'admin_control' => $admin_control]);
@@ -51,9 +51,14 @@ class AdminController extends Controller
         return view('admin/admin_klas',['klassen' => $klassen, 'pathuser' =>$this->pathuser]);
     }
     public function user_delete($id){
-      
-      UpdatePostModel::find($id)->delete();
-      return redirect()->route('admin');
+    if($id == Auth::user()->id){
+        return redirect()->route('admin');
+    }else{
+        UpdatePostModel::find($id)->delete();
+        return redirect()->route('admin');     
+     }
+    
+    
 
     }
    public function role_update($rank,$targetid){

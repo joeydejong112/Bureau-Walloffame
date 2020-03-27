@@ -37,6 +37,9 @@ class Updateusers extends Controller
   }
 
 //check of github / gitlab /linkedin link empty is
+  if($req->website == null){
+    $req->website = "#empty";
+  }
     if($req->github == null){
       $req->github = "#empty";
     }  

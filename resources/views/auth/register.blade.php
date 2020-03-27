@@ -4,7 +4,7 @@
     <div class="row justify-content-center" style="padding-top: 100px;">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+                <div class="card-header">{{ __('Maak een account aan ') }}</div>
                     <div class="card-body">
                     <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                         @csrf
@@ -57,24 +57,28 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="Opleiding" class="col-md-4 col-form-label text-md-right">{{ __('opleiding') }}</label>
+                            <label for="Opleiding" class="col-md-4 col-form-label text-md-right">{{ __('Opleiding') }}</label>
 
                             <div class="col-md-6">
                                 <input id="opleiding" type="text" class="form-control" name="opleiding" required >
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="github" class="col-md-4 col-form-label text-md-right">{{ __('github link:') }}</label>
+                            <label for="github" class="col-md-4 col-form-label text-md-right">{{ __('Github link:') }}</label>
 
                             <div class="col-md-6">
-                                <input id="github" type="text" class="form-control" name="github"  >
+                                <input id="github" type="text" class="form-control" name="github"  >                            
+                                <label for="text"><b>Note:</b>Laat leeg als je het het niet hebt</label>
+
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="gitlab" class="col-md-4 col-form-label text-md-right">{{ __('Gitlab link:') }}</label>
 
                             <div class="col-md-6">
-                                <input id="gitlab" type="text" class="form-control" name="gitlab"  >
+                                <input id="gitlab" type="text" class="form-control" name="gitlab"  >                           
+                                 <label for="text"><b>Note:</b>Laat leeg als je het het niet hebt</label>
+
                             </div>
                         </div>
                         <div class="form-group row">
@@ -82,6 +86,8 @@
 
                             <div class="col-md-6">
                                 <input id="linkedin" type="text" class="form-control" name="linkedin"  >
+                                <label for="text"><b>Note:</b>Laat leeg als je het het niet hebt</label>
+
                             </div>
                         </div>
 
@@ -116,7 +122,7 @@
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
+                                    {{ __('Maak account aan') }}
                                 </button>
                             </div>
                         </div>

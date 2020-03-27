@@ -15,7 +15,7 @@
     }
     </style>
                 <h3 class="title">
-                  Wijzig je profiel gegevens </h3>
+                  Wijzig {{$sortuser->name}}'s profiel gegevens </h3>
     
                 <p>
     
@@ -48,20 +48,27 @@
                             <label for="text">Opleiding:</label>
                             <input type="text" value="{{$sortuser->opleiding}}" name="opleiding"
                                 class="form-control" id="text">
+
                         </div>
                         <div class="form-group">
                             <label for="text">Github</label>
                             <input type="text" value="{{$sortuser->github}}" name="github" class="form-control"
                                 id="text">
+                                <label for="text"><b>Note:</b> #empty = leeg</label>
+
                         </div> <div class="form-group">
                             <label for="text">Gitlab</label>
                             <input type="text" value="{{$sortuser->gitlab}}" name="gitlab" class="form-control"
                                 id="text">
+                                <label for="text"><b>Note:</b> #empty = leeg</label>
+
                         </div> 
                         <div class="form-group">
                             <label for="text">LinkedIn</label>
                             <input type="text" value="{{$sortuser->github}}" name="linkedin" class="form-control"
                                 id="text">
+                                <label for="text"><b>Note:</b> #empty = leeg</label>
+
                         </div>
                         <div class="form-group">
                             <label for="text">Over je zelf</label>

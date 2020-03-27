@@ -126,7 +126,7 @@ return [
 
     'cookie' => env(
         'SESSION_COOKIE',
-        Str::slug(env('APP_NAME', 'laravel'), '_').'_session'
+        Str::slug(env('wall_of_fame', 'wall_of_fame'), '_').'_session'
     ),
 
     /*

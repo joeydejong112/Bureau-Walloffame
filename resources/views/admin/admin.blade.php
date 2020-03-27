@@ -61,11 +61,12 @@
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
-                    </div>
-                    <div class="modal-body">
-                        Roles:
+                    </div>                    
 
-                    </div>
+                    <div class="modal-body">
+
+                    </div>         
+
                     <div class="modal-footer">
                         <a class="btn bg-secondary" href="{{url('/admin/rank/setup/'.$users->id)}}">Setup</a>
                         <a class="btn bg-secondary" href="{{url('/admin/rank/user/'.$users->id)}}">User</a>
@@ -130,7 +131,13 @@
 
             @endif
             <td class="but bg-success"><a href="{{url('/admin/user/'.$users->id)}}">Edit</a> </td>
-            <td class="but bg-danger"><a href="#" data-toggle="modal" data-target="#confirm{{$users->id}}">Del</a> </td>
+
+            @if($users->id == Auth::user()->id)
+
+            @else
+             <td class="but bg-danger "><a href="#" data-toggle="modal" data-target="#confirm{{$users->id}}">Del</a> </td>
+
+            @endif
             <td class="but bg-secondary"><a href="#" data-toggle="modal"
                     data-target="#confirm{{$users->id}}{{$users->id}}">Roles</a> </td>
             <td class="but bg-danger"><a href="#" data-toggle="modal" data-target="#hide{{$users->id}}">hide</a> </td>
