@@ -54,7 +54,7 @@
 
             <div class="form-group">
                 <label for="text" class="bold">Opleiding:</label>
-                <input type="text" value="" name="opleiding" class="form-control" id="text" required>
+                <input type="text" value="{{$users->opleiding}}" name="opleiding" class="form-control" id="text" required>
             </div>
             <div class="form-group">
                 <label for="text" class="bold">Github Link:</label>
@@ -88,7 +88,7 @@
                 <label for="text" class="bold">Contact email</label>
                 <input type="email" value="{{$users->email}}" name="contactemail" class="form-control" id="text" required>
             </div>
-            <button type="submit" name="updateUsersRed" class="btn button_setup ">Submit</button>
+            <button type="submit" name="updateUsersRed" class="btn button_setup btn-primary">Submit</button>
         </form>
     </p>
 

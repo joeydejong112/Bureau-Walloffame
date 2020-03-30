@@ -397,7 +397,6 @@ footer span {
 }
 
 .button_setup  {
-    background-color: darkgray;
     width: 19%;
     color: black;
     margin-top: 20px;
@@ -406,13 +405,7 @@ footer span {
     font-size: initial;
 }
 
-.button_setup:hover {
-    color: #495057;
-    background-color: #fff;
-    border-color: #80bdff;
-    outline: 0;
-    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, .25);
-}
+
 
 button:hover {
     color: white;

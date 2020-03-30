@@ -63,7 +63,7 @@ foreach ($thumbs as $thumbs) {
      */
     public function __construct()
     {
-
+        
 
         $this->middleware('guest');
         // $this->middleware('auth');
@@ -82,12 +82,33 @@ foreach ($thumbs as $thumbs) {
      * @return \Illuminate\Contracts\Validation\Validator
      */
     protected function validator(array $data)
-    {
+    
+    {       
+      
+        if ($data['github'] == NULL){
+
+            $data['github'] = "#empty";
+
+        }
+        if($data['gitlab'] == NULL){
+
+            $data['gitlab'] = "#empty";
+        }
+        if($data['linkedin'] == NULL){
+                    
+            $data['linkedin'] = "#empty";
+        }
+        
+
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'opleiding' => ['required', 'string', 'max:255'],
+            'opleiding' => ['required', 'string', 'max:50'],
+            'github' => ['string', 'max:50'],//not required
+            'gitlab' => ['string', 'max:50'],//not required
+            'linkedin' => ['string', 'max:50'],//not required
+
             'klas' => ['required', 'string', 'max:4']
 
             // 
@@ -106,26 +127,26 @@ foreach ($thumbs as $thumbs) {
     protected function create(array $data)
     {      
         
-            if ($data['github'] == NULL){
+     
+if ($data['github'] == NULL){
 
-                $data['github'] = "#";
+    $data['github'] = "#empty";
 
-            }
-            if($data['gitlab'] == NULL){
+}
+if($data['gitlab'] == NULL){
 
-                $data['gitlab'] = "#";
-            }
-            if($data['linkedin'] == NULL){
-                        
-                $data['linkedin'] = "#";
-            }
-
+    $data['gitlab'] = "#empty";
+}
+if($data['linkedin'] == NULL){
+            
+    $data['linkedin'] = "#empty";
+}
 
              $user = User::create([
             'name'     => $data['name'],
             'email'    => $data['email'],
             'password' => bcrypt($data['password']),
-            'opleiding' =>$data['opleiding'],
+            'opleiding' => $data['opleiding'],
             'github' =>$data['github'],
             'gitlab' =>$data['gitlab'],
             'linkedin' =>$data['linkedin'],
