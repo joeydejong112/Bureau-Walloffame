@@ -28,9 +28,11 @@
 
             </div>
             <div class="form-group">
-                <label for="text">Niet zien</label>
-                <input type="text" value="{{$klassen->zien}}" name="zien" class="form-control" id="text">
-                <label>0 = zien / 1 = niet zien</label>
+
+                <input type="radio" id="male" name="zien" value="0" required>
+                <label for="male">Zien</label><br>
+                <input type="radio" id="male" name="zien" value="1" required>
+                <label for="male">Niet zien</label>
             </div>
             <button type="submit" class="btn btn-success">Wijzig</button>
         </form>

@@ -33,6 +33,9 @@ class Updateusers extends Controller
          Roles::where('user_id',Auth::user()->id)->update([
           'role_id' => '1'
          ]);
+         UpdatePostModel::where('id',auth()->user()->id)->update([
+            'zien' => 1
+         ]);
       }
   }
 

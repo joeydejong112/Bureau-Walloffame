@@ -151,6 +151,8 @@ if($data['linkedin'] == NULL){
             'gitlab' =>$data['gitlab'],
             'linkedin' =>$data['linkedin'],
             'klas'     =>$data['klas'],
+            'zien'     => 0,
+            'profile_image' => 'default.png'
 
 
         ]);

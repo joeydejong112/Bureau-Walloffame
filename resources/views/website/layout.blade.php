@@ -103,6 +103,7 @@
                 <h3 class="board board_top">
                 Top Studenten 
                 </h3>
+           
                 @yield('topusers')
             </div>
         </div>

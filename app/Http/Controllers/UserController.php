@@ -6,6 +6,8 @@ use App\UpdateKlasModel;
 use App\UpdatePostModel;
 use App\User;
 use Auth;
+use Illuminate\Support\Facades\Crypt;
+
 use Illuminate\Http\Request;
 use App\admin_website;
 class UserController extends Controller
@@ -42,6 +44,7 @@ class UserController extends Controller
     }
     protected function setup(Request $request)
     {
+       
                 $pathuser = $this->pathuser;
                 $pathwebsite = $this->pathwebsite;
                 $users = User::find($request->user()->id
