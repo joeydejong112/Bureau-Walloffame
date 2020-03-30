@@ -35,8 +35,7 @@ Route::get('/account', 'UserController@account');
 Route::get('/details/{id}', 'UserController@details')->name('details');
 Route::get('/details', 'UserController@owndetails');
 });
-Auth::routes(
-);
+Auth::routes(['reset' => false]);
 
 Route::middleware(['admin','cache_control'])->group(function () {
     //bekijk voor admin role | middleware admin(adminchecker.php) redirect naar setup pagina
