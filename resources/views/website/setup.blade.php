@@ -41,18 +41,36 @@
             </div>
             <div class="form-group">
                 <label for="text" class="bold">Github Link:</label>
+                @if ($users->github == "#empty")
                 <input type="text" value="" name="github" class="form-control" id="text">
+
+                @else
+                <input type="text" value="{{$users->github}}" name="github" class="form-control" id="text">
+
+                @endif
                 <label for="text"><b>Note:</b>Laat leeg als je het het niet hebt</label>
             </div>
             <div class="form-group">
                 <label for="text" class="bold">Gitlab Link:</label>
+                 @if ($users->gitlab == "#empty")
                 <input type="text" value="" name="gitlab" class="form-control" id="text">
+
+                @else
+                <input type="text" value="{{$users->gitlab}}" name="gitlab" class="form-control" id="text">
+
+                @endif
                 <label for="text"><b>Note:</b>Laat leeg als je het het niet hebt</label>
             </div>
             <div class="form-group">
                 <label for="text" class="bold">LinkedIn Link:</label>
+             @if ($users->linkedin == "#empty")
                 <input type="text" value="" name="linkedin" class="form-control" id="text">
-                <label for="text"><b>Note:</b>Laat leeg als je het het niet hebt</label>
+
+                @else
+                <input type="text" value="{{$users->linkedin}}" name="linkedin" class="form-control" id="text">
+
+                @endif               
+             <label for="text"><b>Note:</b>Laat leeg als je het het niet hebt</label>
             </div>
             <div class="form-group">
                 <label for="text" class="bold">About</label>
