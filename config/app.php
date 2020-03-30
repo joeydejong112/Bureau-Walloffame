@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'Wall of fame'),
 
     /*
     |--------------------------------------------------------------------------
@@ -39,8 +39,8 @@ return [
     |
     */
 
-    'debug' => env('APP_DEBUG', true),
-    // 'debug' => false,
+    // 'debug' => env('APP_DEBUG', true),
+    'debug' => false,
 
     /*
     |--------------------------------------------------------------------------

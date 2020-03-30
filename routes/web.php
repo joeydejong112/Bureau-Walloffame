@@ -41,6 +41,8 @@ Route::middleware(['admin','cache_control'])->group(function () {
     //bekijk voor admin role | middleware admin(adminchecker.php) redirect naar setup pagina
 
     // AdminController 
+    
+
     Route::post('admin/update/user','UpdateAdmin@adminupdateuser');
     Route::post('admin/update/klas','UpdateAdmin@adminupdateklas');
 

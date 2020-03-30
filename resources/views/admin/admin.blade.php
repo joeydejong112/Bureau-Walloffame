@@ -9,15 +9,12 @@
 
 <table>
     <tbody>
-
-
         <tr>
-
-
-            <td>ID</td>
-            <td>Name</td>
-            <td>Email</td>
-            <td>Zichtbaar</td>
+            <td class="td">ID</td>
+            <td class="td">Name</td>
+            <td class="td">Email</td>
+            <td class="td">Zichtbaar</td>
+     
             <td></td>
         </tr>
         @foreach ($users as $users)
@@ -63,15 +60,45 @@
                         </button>
                     </div>                    
 
-                    <div class="modal-body">
+                    <div class="modal-body">   
 
+                @foreach($roles as $key => $role)
+                @if ($role->user_id == $users->id)
+                    Status: 
+                    @if($role->role_id == 1)
+                    User
+                    <?php
+                        $setup = "bg-secondary";
+                        $user_ = "bg-success";
+                        $admin = "bg-secondary";
+                    ?>
+                    @endif
+                      @if($role->role_id == 2)
+                        Admin
+                        <?php
+                        $setup = "bg-secondary";
+                        $user_ = "bg-secondary";
+                        $admin = "bg-success";
+                    ?>
+                    @endif
+                      @if($role->role_id == 3)
+                        Setup
+                        <?php
+                        $setup = "bg-success";
+                        $user_ = "bg-secondary";
+                        $admin = "bg-secondary";
+                    ?>
+                    @endif
+
+                @endif
+                @endforeach
                     </div>         
-
                     <div class="modal-footer">
-                        <a class="btn bg-secondary" href="{{url('/admin/rank/setup/'.$users->id)}}">Setup</a>
-                        <a class="btn bg-secondary" href="{{url('/admin/rank/user/'.$users->id)}}">User</a>
+                    
+                        <a class="btn {{$setup}}" href="{{url('/admin/rank/setup/'.$users->id)}}">Setup</a>
+                        <a class="btn {{$user_}}" href="{{url('/admin/rank/user/'.$users->id)}}">User</a>
 
-                        <a class="btn bg-danger" href="{{url('/admin/rank/admin/'.$users->id)}}">Admin</a>
+                        <a class="btn {{$admin}}" href="{{url('/admin/rank/admin/'.$users->id)}}">Admin</a>
                         <a class="btn bg-success" data-dismiss="modal">terug</a>
 
 
@@ -141,10 +168,6 @@
             <td class="but bg-secondary"><a href="#" data-toggle="modal"
                     data-target="#confirm{{$users->id}}{{$users->id}}">Roles</a> </td>
             <td class="but bg-danger"><a href="#" data-toggle="modal" data-target="#hide{{$users->id}}">hide</a> </td>
-
-
-
-
         </tr>
         @endforeach
     </tbody>
@@ -156,9 +179,9 @@
 <table>
     <tbody>
         <tr>
-            <td>ID</td>
-            <td>Name</td>
-            <td>Zichtbaar</td>
+            <td class="td">ID</td>
+            <td class="td">Name</td>
+            <td class="td">Zichtbaar</td>
         </tr>
         @foreach ($klassen as $klassen)
         <div class="modal fade" id="klas{{$klassen->klas}}" tabindex="-1" role="dialog"
@@ -176,9 +199,6 @@
                         <p>ID: {{$klassen->id}}</p>
                         <p>Naam: {{$klassen->klas}}</p>
                         <p>Niet zien: {{$klassen->zien}}</p>
-
-
-
                     </div>
                     <div class="modal-footer">
                         <a class="btn bg-success" data-dismiss="modal">terug</a>
@@ -216,21 +236,18 @@
 <form class="admin_klas" action="klasadd" method="POST">
     {!! csrf_field() !!}
     <div class="form-group admin_form">
-        <label for="text">Klas</label>
+        <label for="text"><b>Klas</b></label>
         <input type="text" value="" name="klas" class="form-control" id="text">
     </div>
     <input type="radio" id="male" name="zien" value="0" required>
     <label for="male">Zien</label><br>
     <input type="radio" id="male" name="zien" value="1" required>
     <label for="male">Niet zien</label><br>
-
-
-
-    <button type="submit" name="updateUsersRed" class="btn btn-default">Submit</button>
+    <button type="submit" name="updateUsersRed" class="btn btn-primary">Maak aan</button>
 </form>
 @foreach ($admin_control as $admin_control)
 
-<h3 class="board">login / register </h3>
+<h3 class="board">login / register regelaar</h3>
 <div class="container">
     <div class="row">
         <div class="col-md-6 status">
@@ -250,31 +267,24 @@
             <p class="aan">Register</p>
             @endif
 </div>
-
-
-
-
         </div>
         <div class="col-md-6">
             <form class="admin_klas" action="login_register" method="POST">
                 {!! csrf_field() !!}
-                <label for="text">login</label><br>
+                <label for="text"><b>login</b></label><br>
             
                 <input type="radio" id="male" name="login" value="1" required>
                 <label for="male">Aan</label><br>
                 <input type="radio" id="male" name="login" value="0" required>
                 <label for="male">Uit</label><br>
             
-                <label for="text">register</label><br>
+                <label for="text"><b>register</b></label><br>
             
                 <input type="radio" id="male" name="register" value="1" required>
                 <label for="male">Aan</label><br>
                 <input type="radio" id="male" name="register" value="0" required>
                 <label for="male">Uit</label><br>
-            
-            
-            
-                <button type="submit"  class="btn btn-default">Submit</button>
+                <button type="submit"  class="btn btn-success">Wijzig</button>
             </form>
         </div>
     </div>

@@ -812,6 +812,9 @@ table a{
 .project{
     text-align: center;
 }
+.td{
+    font-weight: bold;
+}
 .uit{
     background-color: red;
     text-align: center;

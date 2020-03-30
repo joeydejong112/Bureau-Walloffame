@@ -18,24 +18,16 @@ class AdminController extends Controller
 
     public function __construct(){
         $this->middleware('auth');
-        
-      
-      
-
     }
     public function admin_home (){
-        
-        // $request->user()->checkRoles('admin');
+        $roles = Roles::orderBy('id','asc')->get();
         $admin_control = admin_website::orderBy('id','asc')
         ->get();
         $users = UpdatePostModel::orderBy('id','asc')
         ->get();
-        $klassen = UpdateKlasModel::orderBy('id','asc')
-        
-        ->get();
-        
-        return view('admin/admin',['pathuser' => $this->pathuser, 'users' => $users, 'klassen' => $klassen, 'admin_control' => $admin_control]);
-        
+        $klassen = UpdateKlasModel::orderBy('id','asc')->get();
+    
+        return view('admin/admin',['pathuser' => $this->pathuser, 'users' => $users, 'klassen' => $klassen, 'admin_control' => $admin_control,'roles' => $roles]);
     }
     public function sort_user($id){
         
