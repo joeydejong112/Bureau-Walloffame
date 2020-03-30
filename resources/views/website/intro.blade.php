@@ -45,8 +45,8 @@
             <div class="more-info">
                 <h2>{{$topuser1->name}}</h2>
                 <div class="coords">
-                    <span>Klas: {{$topuser1->klas}}</span>
-                    <span>{{$topuser1->opleiding}}</span>
+                    <span>Klas : {{$topuser1->klas}}</span><br>
+                    <span>Opleiding : {{$topuser1->opleiding}}</span>
                     <br>
                 </div>
                 <div class="coords">
@@ -109,8 +109,8 @@
             <div class="more-info">
                 <h2>{{$topuser2->name}}</h2>
                 <div class="coords">
-                    <span>Klas: {{$topuser2->klas}}</span>
-                    <span>{{$topuser2->opleiding}}</span>
+                    <span>Klas : {{$topuser2->klas}}</span><br>
+                    <span>Opleiding : {{$topuser2->opleiding}}</span>
                     <br>
                 </div>
                 <div class="coords">
@@ -173,8 +173,8 @@
             <div class="more-info">
                 <h2>{{$topuser3->name}}</h2>
                 <div class="coords">
-                    <span>Klas: {{$topuser3->klas}}</span>
-                    <span>{{$topuser3->opleiding}}</span>
+                    <span>Klas : {{$topuser3->klas}}</span><br>
+                    <span>Opleiding : {{$topuser3->opleiding}}</span>
                     <br>
                 </div>
                 <div class="coords">
@@ -239,8 +239,8 @@
             <div class="more-info">
                 <h2>{{$user->name}}</h2>
                 <div class="coords">
-                    <span>Klas: {{$user->klas}}</span>
-                    <span>{{$user->opleiding}}</span>
+                    <span>Klas : {{$user->klas}}</span><br>
+                    <span>Opleiding : {{$user->opleiding}}</span>
                     <br>
                 </div>
                 <div class="coords">

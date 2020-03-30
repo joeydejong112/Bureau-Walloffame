@@ -10,7 +10,6 @@ use App\UpdateKlasModel;
 use Auth;
 use App\User;
 use App\roles;
-
 class AdminController extends Controller
 {
     private $pathuser = "PRiV0/user";
@@ -49,9 +48,6 @@ class AdminController extends Controller
         UpdatePostModel::find($id)->delete();
         return redirect()->route('admin');     
      }
-    
-    
-
     }
    public function role_update($rank,$targetid){
         if ($rank == "user"){
@@ -71,7 +67,6 @@ class AdminController extends Controller
             'role_id' => $new
         ]);
         return redirect()->route('admin');
-
    }
    public function delete_klas($id){
 

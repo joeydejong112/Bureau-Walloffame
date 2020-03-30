@@ -110,7 +110,6 @@ body {
 img {
 
     padding: 0;
-    user-drag: none;
     user-select: none;
     -moz-user-select: none;
     -webkit-user-drag: none;
@@ -541,6 +540,8 @@ button:hover {
     top: 50%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+
 }
 
 .user_card img {
@@ -643,7 +644,8 @@ padding-left: 15px;}
 .card_user .additional .coords {
     margin: 0 1rem;
     color: #fff;
-    font-size: 1rem;
+    margin-top: 20px;
+    font-size: 1.1rem;
 }
 
 .card_user .green .additional .coords {
