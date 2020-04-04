@@ -12,9 +12,10 @@ Account | Wall of fame
         .textbox {
             height: 50px;
         }
+
     </style>
     <h3 class="title">
-        Wijzig je Account  gegevens </h3>
+        Wijzig je Account gegevens </h3>
     <p>
         <form class="kleinertext" action="updateUsersRed" method="POST" enctype="multipart/form-data">
             {!! csrf_field() !!}
@@ -28,20 +29,30 @@ Account | Wall of fame
                 <label for="text"><b>Ondersteunt:</b> Links, HEX(#FF5733)</label>
             </div>
             <div class="form-group">
-                <label for="text"class="bold">Profiel foto:</label>
-                <input type="file" value="{{$users->profile_image}}" name="profile_image" class="form-control"
-                    id="text">
+                <label for="text" class="bold">Profiel foto:</label>
+                <input type="file" value="{{$users->profile_image}}" name="profile_image" class="form-control" id="text"
+                    onchange="loadFile(event)">
                 <label for="text"><b>Ondersteunt:</b> jpeg,png,jpg,gif,svg max 2MB</label>
             </div>
-            <label for="text"class="bold">Huidige foto:</label>
 
-            @if($users->profile_image == 'default.png')
-            <img class="col-sm-6" id="preview" src="{{ asset('Website/default.png') }}">
+            <div class="fotots">
+                <label for="text" class="bold">Huidige foto:</label>
 
-            @else
-            <img class="col-sm-6" id="preview" src="{{ asset($pathuser.'/'.$users->id.'/'. $users->profile_image) }}">
+                @if($users->profile_image == 'default.png')
+                <img class="col-sm-6" id="preview" src="{{ asset('Website/default.png') }}">
 
-            @endif
+                @else
+                <img class="col-sm-6" id="preview"
+                    src="{{ asset($pathuser.'/'.$users->id.'/'. $users->profile_image) }}">
+
+                @endif
+            </div>
+            <div class="fotots">
+
+                <label for="text" class="bold">Test je foto:</label>
+
+                <img class="col-sm-6 preview" id="output">
+            </div>
 
             <div class="form-group">
                 <label for="text" class="bold">Opleiding:</label>

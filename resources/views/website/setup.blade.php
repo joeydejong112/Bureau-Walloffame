@@ -34,8 +34,14 @@ Setup | Wall of fame
             <div class="form-group">
                 <label for="text" class="bold">Profiel foto:</label>
                 <input type="file" value="{{$users->profile_image}}" name="profile_image" class="form-control" id="text"
-                    required>
+                 onchange="loadFile(event)"    required>
                 <label for="text"><b>Ondersteunt:</b> jpeg,png,jpg,gif,svg max 2MB</label>
+            </div>
+              <div class="fotots">
+
+                <label for="text" class="bold">Live profile foto:</label>
+
+                <img class="col-sm-6 preview" id="output">
             </div>
             <div class="form-group">
                 <label for="text" class="bold">Opleiding:</label>

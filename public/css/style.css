@@ -34,7 +34,18 @@ body {
     position: relative;
 
 }
+.preview {
+    border-radius: 50%;
+
+    width: 200px;
+    height: 194px;
+}
+.fotots{
+    padding-top: 5px;
+}
 #preview{
+    border-radius: 50%;
+
     width: 200px;
     height: 194px;
 }

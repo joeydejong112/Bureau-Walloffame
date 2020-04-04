@@ -7,6 +7,8 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 use App\UpdatePostModel;
+use Intervention\Image\Facades\Image;
+
 
 use App\roles;
 
@@ -67,7 +69,7 @@ class Updateusers extends Controller
        ]);
         // delete vorgie foto
         File::delete($imageDestroyPath);
-
+    dd($file);
       $naamfile = $file->getClientOriginalName();
 
       if($file->move($this->pathuser.'/'.Auth::user()->id, $naamfile)){
@@ -113,8 +115,102 @@ class Updateusers extends Controller
       
           
   }//  class end
+public function update1(Request $req){
+  //check for setup role
+  if (Auth::check()) {
+    if ($req->user()->hasRole('setup')) {
 
-  protected function Like(Request $req,$id,$rank,$authid,$klas){
+       Roles::where('user_id',Auth::user()->id)->update([
+        'role_id' => '1'
+       ]);
+       UpdatePostModel::where('id',auth()->user()->id)->update([
+          'zien' => 1
+       ]);
+    }
+}
+//check of het leeg is
+if($req->website == null){
+  $req->website = "#empty";
+}
+  if($req->github == null){
+    $req->github = "#empty";
+  }  
+  if($req->gitlab == null){
+    $req->gitlab = "#empty";
+  }
+  if($req->linkedin == null){
+    $req->linkedin = "#empty";
+  }
+
+if ($file = $req->file('profile_image')){
+
+  $this->validate($req, [
+
+      'profile_image'  => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+    ]);
+    File::delete($this->pathuser.'/'.Auth::user()->id.'/'.Auth::user()->profile_image);
+
+    $image = $req->file('profile_image');
+
+    $image_name = time() . '.' . $image->getClientOriginalExtension();
+
+    $destinationPath = public_path($this->pathuser.'/'.Auth::user()->id);
+
+    if(!File::isDirectory($destinationPath)){
+
+      File::makeDirectory($destinationPath, 0777, true, true);
+
+    }
+
+    $resize_image = Image::make($image->getRealPath());
+
+    $resize_image->resize(640, 480, function($constraint){
+      $constraint->aspectRatio();
+    })->save($destinationPath . '/' . $image_name);
+
+    $destinationPath = public_path('/OriginalImage');
+
+    $image->move($destinationPath, $image_name);
+    File::delete('OriginalImage/'.$image_name );
+
+    UpdatePostModel::where('id',Auth::user()->id)->update([
+          
+      'name'=>$req->name,
+      'background'=>$req->background,
+      'profile_image'=>$image_name,
+      'opleiding'=>$req->opleiding,
+      'github'=>$req->github,
+      'gitlab'=>$req->gitlab,
+      'linkedin'=>$req->linkedin,
+      'about'=>$req->about,
+      'website'=>$req->website,
+      'contactemail'=>$req->contactemail
+
+      ]);
+            return redirect()->route('succes');
+
+}else{
+    UpdatePostModel::where('id',Auth::user()->id)->update([
+        
+      'name'=>$req->name,
+      'background'=>$req->background,
+      'opleiding'=>$req->opleiding,
+      'github'=>$req->github,
+      'gitlab'=>$req->gitlab,
+      'linkedin'=>$req->linkedin,
+      'about'=>$req->about,
+      'website'=>$req->website,
+      'contactemail'=>$req->contactemail
+
+      ]);
+      return redirect()->route('succes');
+
+  }
+  
+}
+  
+  
+    protected function Like(Request $req,$id,$rank,$authid,$klas){
       $req->rank = $this->value;
       $bereken = $req->rank + $rank ;
 
@@ -162,3 +258,6 @@ class Updateusers extends Controller
        
   }
 }
+
+
+

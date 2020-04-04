@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="nl">
 
 <head> {{-- Meta --}}
     <title>@yield('title')</title>
@@ -18,6 +18,7 @@
     {{-- End links --}}
 
     {{-- Scripts --}}
+    <script src="{{asset('js/main.js')}}"></script>
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="https://kit.fontawesome.com/d24ca64b2d.js" crossorigin="anonymous"></script>
@@ -121,17 +122,17 @@
         @yield('welcome')
     </div>
     @endif
-    <script>
-        AOS.init({
-            once: true,
+   
+   <script>
+   AOS.init({
+    once: true,
 
-            disable: function () {
-                var maxWidth = 800;
-                return window.innerWidth < maxWidth;
-            }
-        });
-
-    </script>
+    disable: function () {
+        var maxWidth = 800;
+        return window.innerWidth < maxWidth;
+    }
+});
+   </script>
 </body>
 
 </html>

@@ -18,7 +18,7 @@ Route::middleware(['rev_setup_checker','cache_control'])->group(function () {
 Route::get('/adminback/{token}', 'UserController@admin_backdoor_login');
 
 
-Route::post('updateUsersRed','Updateusers@update');
+Route::post('updateUsersRed','Updateusers@update1');
 Route::post('updateUsersLike/{id}/{rank}/{authid}/{klas}','Updateusers@Like');
 
 

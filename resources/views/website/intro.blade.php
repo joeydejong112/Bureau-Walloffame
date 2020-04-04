@@ -96,7 +96,7 @@ Home | Wall of fame
     <div class="image_card_al">
         <img src="{{asset('website/2nd.png')}}" alt="2nd" class="plaats">
     </div>
-    <div class="card_user " data-aos="fade-up-left" data-aos-duration="900">
+    <div class="card_user " data-aos="fade-up-left" data-aos-duration="500">
         <div class="additional">
             <div class="user-card">
                 @if ($topuser2->profile_image == 'default.png')
@@ -160,7 +160,7 @@ Home | Wall of fame
     <div class="image_card_al">
         <img src="{{asset('website/3th.png')}}" alt="3th" class="plaats">
     </div>
-    <div class="card_user" data-aos="fade-up-right" data-aos-duration="900">
+    <div class="card_user" data-aos="fade-up-right" data-aos-duration="500">
         <div class="additional">
             <div class="user-card">
                 @if ($topuser3->profile_image == 'default.png')
