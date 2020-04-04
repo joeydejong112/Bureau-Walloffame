@@ -33,9 +33,11 @@ body {
 .right {
     position: relative;
 
-    background-color: white;
 }
-
+#preview{
+    width: 200px;
+    height: 194px;
+}
 .plaats {
     width: 105px;
     /* margin: 50px; */
@@ -253,7 +255,9 @@ footer span {
 
 
 
-
+.fas{
+    inline-size: max-content;
+}
 .content {
     background: #efefef;
 }
@@ -850,23 +854,45 @@ table a{
 .zien p{
     color: white;
 }
+@media screen and (max-width: 1100px) {
+    .image_align_welcome p{
+        display: none;
+    }
+    .image_align_welcome {
+        left: -5%;
+    }
+ 
+}
 @media screen and (max-width: 991px) {
+    .align_welcome h2{
+        font-size: 48px;
+    }
+    .btn-block{
+        margin-top: 108px;
+        width: 65%!important;
+    }
+    .image_align_welcome p{
+        display: none;
+    }
     .dropdown-item {
         text-align: right;
     }
+    .align_welcome{
+        margin-top: 168px;
 
+    }
     .board_top {
         padding-bottom: 45%;
 
     }
 }
 @media screen and (max-width: 730px) {
-    .align_welcome{
-        margin-top: 68px;
-
-    }
+   
 }
 @media screen and (max-width: 568px) {
+    .sites2{
+        width: 100%;
+    }
     .user_resp a{
         width: 100%!important;
 
@@ -895,7 +921,9 @@ table a{
        width: 67%!important;
    }
    
-  
+   .btn-block{
+        margin-top: 40px!important;
+    }
    .user-card img{
     max-width: 88px;
     margin: 0 auto;
@@ -910,7 +938,7 @@ table a{
 }
 
 @media screen and (max-width: 416px) {
-
+   
     .user-card{
         width: 100%!important;
     }
@@ -923,6 +951,9 @@ table a{
     }
 }
 @media screen and (max-width: 380px) {
+    .align_welcome h2{
+        font-size: 42px;
+    }
 
 .navbar{
     padding-left: 7px;

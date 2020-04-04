@@ -1,4 +1,7 @@
 @extends('website/layout')
+@section('title')
+{{$users->name}} profiel | Wall of fame
+@endsection
 @section('footer')
 <footer>
     <span> &copy;</span> Grafisch Lyceum Utrecht 2020 gemaakt met <i style="color:red;" class="fas fa-heart"></i>

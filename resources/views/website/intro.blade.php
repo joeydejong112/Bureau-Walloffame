@@ -1,4 +1,7 @@
 @extends('website/layout')
+@section('title')
+Home | Wall of fame
+@endsection
 {{-- Section buttons --}}
 @section('buttons')
 {{-- {{dd(Auth::user()->hasRole('admin'))}} --}}

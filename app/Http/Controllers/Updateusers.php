@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Redirect;
 use Illuminate\Foundation\Auth\RegistersUsers;
-
+use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 use App\UpdatePostModel;
 
@@ -26,7 +26,9 @@ class Updateusers extends Controller
   // EGUHJSFDSFDSBGFDGJNDFJGDFNGJDFJGNFDGFDGSFGGRFDGDFGFDGDFGFDG LOOK HERE
 // MOET JE NOG FIXEN
   public function update(Request $req){
-  
+    
+  $imageDestroyPath = $this->pathuser.'/'.Auth::user()->id.'/'.Auth::user()->profile_image;
+
     if (Auth::check()) {
       if ($req->user()->hasRole('setup')) {
 
@@ -58,13 +60,15 @@ class Updateusers extends Controller
     
     if ($file = $req->file('profile_image')){
       
-      request()->validate([
+      $req->validate([
 
         'profile_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2000',
 
        ]);
+        // delete vorgie foto
+        File::delete($imageDestroyPath);
 
-          $naamfile = $file->getClientOriginalName();
+      $naamfile = $file->getClientOriginalName();
 
       if($file->move($this->pathuser.'/'.Auth::user()->id, $naamfile)){
            UpdatePostModel::where('id',auth()->user()->id)->update([

@@ -1,4 +1,7 @@
 @extends('website/layout')
+@section('title')
+Setup | Wall of fame
+@endsection
 @section('content')
 <div class="col-md-10 m-auto " style="padding-top:109px;">
     <style>
@@ -34,25 +37,42 @@
                     required>
                 <label for="text"><b>Ondersteunt:</b> jpeg,png,jpg,gif,svg max 2MB</label>
             </div>
-            <img class="col-sm-6" id="preview" src="">
             <div class="form-group">
                 <label for="text" class="bold">Opleiding:</label>
                 <input type="text" value="{{$users->opleiding}}" name="opleiding" class="form-control" id="text" required>
             </div>
             <div class="form-group">
                 <label for="text" class="bold">Github Link:</label>
+                @if ($users->github == "#empty")
                 <input type="text" value="" name="github" class="form-control" id="text">
+
+                @else
+                <input type="text" value="{{$users->github}}" name="github" class="form-control" id="text">
+
+                @endif
                 <label for="text"><b>Note:</b>Laat leeg als je het het niet hebt</label>
             </div>
             <div class="form-group">
                 <label for="text" class="bold">Gitlab Link:</label>
+                 @if ($users->gitlab == "#empty")
                 <input type="text" value="" name="gitlab" class="form-control" id="text">
+
+                @else
+                <input type="text" value="{{$users->gitlab}}" name="gitlab" class="form-control" id="text">
+
+                @endif
                 <label for="text"><b>Note:</b>Laat leeg als je het het niet hebt</label>
             </div>
             <div class="form-group">
                 <label for="text" class="bold">LinkedIn Link:</label>
+             @if ($users->linkedin == "#empty")
                 <input type="text" value="" name="linkedin" class="form-control" id="text">
-                <label for="text"><b>Note:</b>Laat leeg als je het het niet hebt</label>
+
+                @else
+                <input type="text" value="{{$users->linkedin}}" name="linkedin" class="form-control" id="text">
+
+                @endif               
+             <label for="text"><b>Note:</b>Laat leeg als je het het niet hebt</label>
             </div>
             <div class="form-group">
                 <label for="text" class="bold">About</label>

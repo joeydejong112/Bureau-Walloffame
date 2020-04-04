@@ -11,7 +11,7 @@
 */
 Route::middleware(['rev_setup_checker','cache_control'])->group(function () {
 
-Route::get('/setup', 'UserController@setup' )->name('setup');
+    Route::get('/setup', 'UserController@setup' )->name('setup');
 
 });
 
@@ -26,14 +26,14 @@ Route::post('updateUsersLike/{id}/{rank}/{authid}/{klas}','Updateusers@Like');
 Route::middleware(['setup_checker','cache_control'])->group(function () {
 
 //bekijk voor setup role | middleware setup_checker redirect naar setup pagina
-Route::get('/klas/{id}', 'UserController@sort');
+    Route::get('/klas/{id}', 'UserController@sort');
 
-Route::get('/', 'UserController@welcome');
-Route::get('/home', 'UserController@output');
-Route::get('/succes', 'UserController@output')->name('succes');
-Route::get('/account', 'UserController@account');
-Route::get('/details/{id}', 'UserController@details')->name('details');
-Route::get('/details', 'UserController@owndetails');
+    Route::get('/', 'UserController@welcome');
+    Route::get('/home', 'UserController@output');
+    Route::get('/succes', 'UserController@output')->name('succes');
+    Route::get('/account', 'UserController@account');
+    Route::get('/details/{id}', 'UserController@details')->name('details');
+    Route::get('/details', 'UserController@owndetails');
 });
 Auth::routes(['reset' => false]);
 
