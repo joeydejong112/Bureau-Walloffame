@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html lang="nl">
+<html>
 
-<head>
-    {{-- Meta --}}
-    <title>Wall of Fame</title>
+<head> {{-- Meta --}}
+    <title>@yield('title')</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -11,28 +10,29 @@
     {{-- End Meta --}}
 
     {{-- Link --}}
-    <link rel="icon" href="{{ URL::asset('/website/favicon.ico') }}" type="image/x-icon" />
+    <link rel="icon" href="{{asset('/website/favicon.ico') }}" type="image/x-icon" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="{{asset('css/style.css') }}" rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> --}}
     {{-- End links --}}
 
     {{-- Scripts --}}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="https://kit.fontawesome.com/d24ca64b2d.js" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     {{-- End scripts --}}
 </head>
-<body oncontextmenu="">
+
+<body>
     <div class="container-fluid">
         <div class="row">
             <nav class="navbar navbar-expand-lg fixed-top">
                 <div class="d-flex flex-grow-1">
                     <span class="w-100 d-lg-none d-block">
                     </span>
-                    <a style="color:black;" class="navbar-brand mr-5" href="/home">
+                    <a style="color:black;" class="navbar-brand mr-5" data-aos="fade-right" href="/home">
                         Grafisch lyceum / Wall of fame
                     </a>
                     <div class="w-100 text-right _resp_">
@@ -49,50 +49,48 @@
                         @if($website_control->login == 1)
                         <li class="nav-item ">
                             <a class="nav-link login_button" href="{{ route('login') }}">{{ __('Login') }}</a>
-                        </li>
-                        @endif
-                        @if($website_control->register == 1)
-                        <li class="nav-item ">
-                            <a class="nav-link login_button" href="{{ route('register') }}">{{ __('register') }}</a>
-                        </li>
-                        @endif
-                        @endforeach
-                        @else
-                        <li class="nav-item ">
-                            <a style="color:black;padding:0px;" id="navbarDropdown" class="nav-link dropdown-toggle"
-                                href="#" role="button" data-toggle="dropdown" aria-haspopup="false"
-                                aria-expanded="false" v-pre>
-                                @if (Auth::user()->profile_image == 'default.png')
-                                <img src="{{ asset('Website/default.png') }}" alt="{{Auth::user()->profile_image}} "
-                                    class="profile_image_layout" />
-                                @else
-                                <img src="{{ asset($pathuser.'/'.Auth::user()->id .'/'. Auth::user()->profile_image) }}"
-                                    alt="{{Auth::user()->profile_image}}" class="profile_image_layout" />
-                                @endif
-                                <span class="caret"></span>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="/details">
-                                    Eigen profiel
-                                </a>
-                                <a class="dropdown-item" href="/account">
-                                    Wijzig gegevens
-                                </a>
-                                <a class="dropdown-item" href="{{ route('logout') }}"
-                                    onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-                                    {{ __('Log uit') }}
-                                </a>
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                    class="display_none">
-                                    @csrf
-                                </form>
-                            </div>
-                        </li>
-                        @endguest
-                    </ul>
-                </div>
-            </nav>
+    </li>
+    @endif
+    @if($website_control->register == 1)
+    <li class="nav-item ">
+        <a class="nav-link login_button" href="{{ route('register') }}">{{ __('register') }}</a>
+    </li>
+    @endif
+    @endforeach
+    @else
+    <li class="nav-item ">
+        <a style="color:black;padding:0px;" id="navbarDropdown" data-aos="fade-left" class="nav-link dropdown-toggle"
+            href="#" role="button" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false" v-pre>
+            @if (Auth::user()->profile_image == 'default.png')
+            <img src="{{ asset('Website/default.png') }}" alt="{{Auth::user()->profile_image}} "
+                class="profile_image_layout" />
+            @else
+            <img src="{{ asset($pathuser.'/'.Auth::user()->id .'/'. Auth::user()->profile_image) }}"
+                alt="{{Auth::user()->profile_image}}" class="profile_image_layout" />
+            @endif
+            <span class="caret"></span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right " aria-labelledby="navbarDropdown">
+            <a data-aos="flip-right" class="dropdown-item" href="/details">
+                Eigen profiel
+            </a>
+            <a class="dropdown-item" href="/account">
+                Wijzig gegevens
+            </a>
+            <a class="dropdown-item" href="{{ route('logout') }}"
+                onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                {{ __('Log uit') }}
+            </a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="display_none">
+                @csrf
+            </form>
         </div>
+    </li>
+    @endguest
+    </ul>
+    </div>
+    </nav>
+    </div>
     </div>
     @if (trim($__env->yieldContent('topusers')))
     <div class="container-fluid">
@@ -118,6 +116,11 @@
         @yield('footer')
     </div>
     @endif
+    @if (trim($__env->yieldContent('welcome')))
+    <div class="container-fluid" style="height: 100%;">
+        @yield('welcome')
+    </div>
+    @endif
     <script>
         AOS.init({
             once: true,
@@ -130,4 +133,5 @@
 
     </script>
 </body>
+
 </html>

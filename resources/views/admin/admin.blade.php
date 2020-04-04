@@ -1,10 +1,9 @@
 @extends('website/layout')
+@section('title')
+AdminPanel | Wall of fame
+@endsection
 @section('content')
-
-
 <div style="margin-top: 100px"></div>
-
-
 <h3 class="board">Studenten </h3>
 
 <table>

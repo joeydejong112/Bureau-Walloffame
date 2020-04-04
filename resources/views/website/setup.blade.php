@@ -1,4 +1,7 @@
 @extends('website/layout')
+@section('title')
+Setup | Wall of fame
+@endsection
 @section('content')
 <div class="col-md-10 m-auto " style="padding-top:109px;">
     <style>
@@ -34,7 +37,6 @@
                     required>
                 <label for="text"><b>Ondersteunt:</b> jpeg,png,jpg,gif,svg max 2MB</label>
             </div>
-            <img class="col-sm-6" id="preview" src="">
             <div class="form-group">
                 <label for="text" class="bold">Opleiding:</label>
                 <input type="text" value="{{$users->opleiding}}" name="opleiding" class="form-control" id="text" required>

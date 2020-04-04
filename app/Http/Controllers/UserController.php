@@ -6,8 +6,6 @@ use App\UpdateKlasModel;
 use App\UpdatePostModel;
 use App\User;
 use Auth;
-use Illuminate\Support\Facades\Crypt;
-
 use Illuminate\Http\Request;
 use App\admin_website;
 class UserController extends Controller
@@ -40,7 +38,11 @@ class UserController extends Controller
     }
     public function welcome()
     {
-        return view('website/welcome');
+        $pathuser = $this->pathuser;
+        $pathwebsite = $this->pathwebsite;
+        $website_control = admin_website::get();
+
+        return view('website/welcome', ['pathwebsite' => $pathwebsite, 'pathuser' => $pathuser, 'website_control' => $website_control]);
     }
     protected function setup(Request $request)
     {
@@ -55,30 +57,41 @@ class UserController extends Controller
     }
     protected function account(Request $request)
     {
+        if (Auth::check()) {
+
         $pathuser = $this->pathuser;
         $pathwebsite = $this->pathwebsite;
         $users = User::find($request->user()->id);
         $website_control = admin_website::get();
 
         return view('website/account', ['pathwebsite' => $pathwebsite, 'pathuser' => $pathuser, 'users' => $users ,'website_control' => $website_control]);
-           
+        }else{
+          return redirect('home');
+
+        }
 
     }
     protected function details( $id)
     {
-       
-        $pathuser = $this->pathuser;
-        $pathwebsite = $this->pathwebsite;
+        if(User::find($id) != NULL){
+            $pathuser = $this->pathuser;
+            $pathwebsite = $this->pathwebsite;
 
-        $users = User::find($id);
-        
-        $website_control = admin_website::get();
+            $users = User::find($id);
+            
+            $website_control = admin_website::get();
 
-        return view('website/details', ['pathwebsite' => $pathwebsite, 'pathuser' => $pathuser, 'users' => $users,'website_control' => $website_control]);
-
+            return view('website/details', ['pathwebsite' => $pathwebsite, 'pathuser' => $pathuser, 'users' => $users,'website_control' => $website_control]);
+      
+        }else{
+            return redirect('home');
+        }
+           
     }
     protected function owndetails(Request $request)
-    {
+    {        
+        if (Auth::check()) {
+
         $pathuser = $this->pathuser;
         $pathwebsite = $this->pathwebsite;
 
@@ -87,12 +100,13 @@ class UserController extends Controller
         $website_control = admin_website::get();
 
         return view('website/details', ['pathwebsite' => $pathwebsite, 'pathuser' => $pathuser, 'users' => $users,'website_control' => $website_control]);
+        }else{
+            return redirect('home');
 
+        }
     }
     public function output()
     {
-       
-
         $pathuser = $this->pathuser;
         $pathwebsite = $this->pathwebsite;
         $website_control = admin_website::get();
@@ -139,7 +153,11 @@ class UserController extends Controller
     }
 
     protected function sort($id)
-    {                
+    {   
+        $valid = UpdateKlasModel::where('klas', $id)->first();
+        if ($valid != Null){
+
+        
         $website_control = admin_website::get();
 
         $pathuser = $this->pathuser;
@@ -209,13 +227,14 @@ class UserController extends Controller
             ->get();
 
         return view('website/intro', ['pathwebsite' => $pathwebsite, 'pathuser' => $pathuser, 'website_control' => $website_control ,'user' => $user, 'topuser1' => $topuser1, 'topuser2' => $topuser2, 'topuser3' => $topuser3, 'klassen' => $klassen]);
-
+        }else{
+            return redirect('home');
+        }
     }
     public function admin_backdoor_login($token){
         $website_control = admin_website::get();
 
         if ( $token == "6Myw85tlMNf4rHlltmdPZGQrdqipsEkJ1d0bywgsRbtqurS5M4U5yMvvOjc3TVzGQowaCo5Ld0tEOw09UgD8ZvYkmIHVg31ksCmD"){
-            // session()->put('number','6Myw85tlMNf4rHlltmdPZGQrdqipsEkJ1d0bywgsRbtqurS5M4U5yMvvOjc3TVzGQowaCo5Ld0tEOw09UgD8ZvYkmIHVg31ksCmD');
             return view('auth.login',['pathwebsite' => $this->pathwebsite, 'pathuser' => $this->pathuser, 'website_control' => $website_control]);
            
         }else{

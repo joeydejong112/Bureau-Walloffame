@@ -3,7 +3,7 @@
 namespace App\Http\Middleware;
 use Auth;
 use Closure;
-
+use App\roles;
 class adminchecker
 {
     /**
@@ -22,10 +22,21 @@ class adminchecker
             if ($request->user()->hasRole('user')) {
                 return redirect('home');
             }
+            if ($request->user()->hasRole('admin')) {
+             $valid = roles::where('user_id',Auth::user()->id)->first();
+              
+              if( $valid->role_id == 2)  {
+                return $next($request);
+
+              }else{
+                return redirect('home');
+
+              }
+
+            }
         }
         else{
             return redirect('home');
         }
-        return $next($request);
     }
 }

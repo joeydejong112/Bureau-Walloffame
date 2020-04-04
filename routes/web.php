@@ -1,4 +1,4 @@
-<?php
++<?php
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,21 +21,21 @@ Route::get('/adminback/{token}', 'UserController@admin_backdoor_login');
 Route::post('updateUsersRed','Updateusers@update');
 Route::post('updateUsersLike/{id}/{rank}/{authid}/{klas}','Updateusers@Like');
 
+Auth::routes(['reset' => false]);
 
 
 Route::middleware(['setup_checker','cache_control'])->group(function () {
 
 //bekijk voor setup role | middleware setup_checker redirect naar setup pagina
-Route::get('/klas/{id}', 'UserController@sort');
+    Route::get('/klas/{id}', 'UserController@sort');
 
-Route::get('/', 'UserController@welcome');
-Route::get('/home', 'UserController@output');
-Route::get('/succes', 'UserController@output')->name('succes');
-Route::get('/account', 'UserController@account');
-Route::get('/details/{id}', 'UserController@details')->name('details');
-Route::get('/details', 'UserController@owndetails');
+    Route::get('/', 'UserController@welcome');
+    Route::get('/home', 'UserController@output');
+    Route::get('/succes', 'UserController@output')->name('succes');
+    Route::get('/account', 'UserController@account');
+    Route::get('/details/{id}', 'UserController@details')->name('details');
+    Route::get('/details', 'UserController@owndetails');
 });
-Auth::routes(['reset' => false]);
 
 Route::middleware(['admin','cache_control'])->group(function () {
     //bekijk voor admin role | middleware admin(adminchecker.php) redirect naar setup pagina

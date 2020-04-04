@@ -1,7 +1,8 @@
 @extends('website/layout')
-{{-- Section buttons --}}
+@section('title')
+Home | Wall of fame
+@endsection
 @section('buttons')
-{{-- {{dd(Auth::user()->hasRole('admin'))}} --}}
 <li class="nav-item t text-left">
     <a href="{{ url('/home') }}" class="dropdown-item">Alles</a>
     </a>
