@@ -41,8 +41,11 @@ body {
     height: 194px;
 }
 .fotots{
+    width: 50%;
     padding-top: 5px;
 }
+.fotots img{
+align-self: center;}
 #preview{
     border-radius: 50%;
 

@@ -23,19 +23,28 @@ Adminpanel | Editing {{$sortuser->name}}
             </div>
             <div class="form-group">
                 <label for="text" class="bold">Profiel foto:</label>
-                <input type="file" value="{{$sortuser->profile_image}}" name="profile_image" class="form-control"
-                    id="text">
-                <label for="text"><b>Ondersteund:</b> jpeg,png,jpg,gif,svg max 2MB</label>
+                <input type="file"  name="profile_image" class="form-control" id="text"
+                    onchange="loadFile(event)">
+                <label for="text"><b>Ondersteunt:</b> jpeg,png,jpg,gif,svg max 2MB</label>
             </div>
-             <label for="text"class="bold">Huidige foto:</label>
+             <div class="fotots">
+                <label for="text" class="bold">Huidige foto:</label>
 
-            @if($sortuser->profile_image == 'default.png')
-            <img class="col-sm-6" id="preview" src="{{ asset('Website/default.png') }}">
+                @if($sortuser->profile_image == 'default.png')
+                <img class="col-sm-6" id="preview" src="{{ asset('Website/default.png') }}">
 
-            @else
-            <img class="col-sm-6" id="preview" src="{{ asset($pathuser.'/'.$sortuser->id.'/'. $sortuser->profile_image) }}">
+                @else
+                <img class="col-sm-6" id="preview"
+                    src="{{ asset($pathuser.'/'.$sortuser->id.'/'. $sortuser->profile_image) }}">
 
-            @endif
+                @endif
+            </div>
+             <div class="fotots">
+
+                <label for="text" class="bold">Preview foto:</label>
+
+                <img class="col-sm-6 preview" id="output">
+            </div>
             <div class="form-group">
                 <label for="text" class="bold">Opleiding:</label>
                 <input type="text" value="{{$sortuser->opleiding}}" name="opleiding" class="form-control" id="text">

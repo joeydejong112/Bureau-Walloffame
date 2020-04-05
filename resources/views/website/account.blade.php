@@ -49,7 +49,7 @@ Account | Wall of fame
             </div>
             <div class="fotots">
 
-                <label for="text" class="bold">Test je foto:</label>
+                <label for="text" class="bold">Preview foto:</label>
 
                 <img class="col-sm-6 preview" id="output">
             </div>
@@ -96,7 +96,6 @@ Account | Wall of fame
                 @else
                 <input type="text" value="{{$users->website}}" name="website" class="form-control" id="text">
                 @endif
-                <label for="text"><b>Note:</b>Laat leeg als je het het niet hebt</label>
                 <div class="form-group">
                     <label for="text" class="bold">Contact email</label>
                     <input type="text" value="{{$users->contactemail}}" name="contactemail" class="form-control"
