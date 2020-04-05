@@ -167,6 +167,8 @@ return [
         /*
          * Package Service Providers...
          */
+        Barryvdh\Debugbar\ServiceProvider::class,
+
         Intervention\Image\ImageServiceProvider::class,
 
 
@@ -196,6 +198,7 @@ return [
     'aliases' => [
         'Image' => Intervention\Image\Facades\Image::class,
 
+        'Debugbar' => Barryvdh\Debugbar\Facade::class,
 
 
         'App' => Illuminate\Support\Facades\App::class,
