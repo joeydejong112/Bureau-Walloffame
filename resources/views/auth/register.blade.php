@@ -3,8 +3,8 @@
 <div class="container" >
     <div class="row justify-content-center" style="padding-top: 100px;">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Maak een account aan ') }}</div>
+            <div class="card align_login">
+                <h2 class="title_login">Registeer</h2>
                     <div class="card-body">
                     <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                         @csrf
@@ -68,7 +68,7 @@
 
                             <div class="col-md-6">
                                 <input id="github" type="text" class="form-control" name="github"  >                            
-                                <label for="text"><b>Note:</b>Laat leeg als je het het niet hebt</label>
+                                <label for="text"><b>Note:</b>Laat leeg als je het niet hebt</label>
 
                             </div>
                         </div>
@@ -77,22 +77,22 @@
 
                             <div class="col-md-6">
                                 <input id="gitlab" type="text" class="form-control" name="gitlab"  >                           
-                                 <label for="text"><b>Note:</b>Laat leeg als je het het niet hebt</label>
+                                 <label for="text"><b>Note:</b>Laat leeg als je het niet hebt</label>
 
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="linkedin" class="col-md-4 col-form-label text-md-right">{{ __('linkedin link:') }}</label>
+                            <label for="linkedin" class="col-md-4 col-form-label text-md-right">{{ __('Linkedin link:') }}</label>
 
                             <div class="col-md-6">
                                 <input id="linkedin" type="text" class="form-control" name="linkedin"  >
-                                <label for="text"><b>Note:</b>Laat leeg als je het het niet hebt</label>
+                                <label for="text"><b>Note:</b>Laat leeg als je het niet hebt</label>
 
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label for="klas" class="col-md-4 col-form-label text-md-right">{{ __('klas') }}</label>
+                            <label for="klas" class="col-md-4 col-form-label text-md-right">{{ __('Klas') }}</label>
                             
                             <div class="col-md-6">
                                 <select style="width:100%;"name="klas">
@@ -121,7 +121,7 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-success login_button_page">
                                     {{ __('Maak account aan') }}
                                 </button>
                             </div>

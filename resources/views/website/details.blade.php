@@ -33,15 +33,15 @@
                 </h3>
                 <div class="sites">
                     @if ($users->github != "#empty")
-                    <a href="{{$users->github}}"><i class="fab fa-github"></i></a>
+                    <a href="//{{$users->github}}"><i class="fab fa-github"></i></a>
                     @else
                     @endif
                     @if ($users->linkedin != "#empty")
-                    <a href="{{$users->linkedin}}"> <i class="fab fa-linkedin-in"></i></a>
+                    <a href="//{{$users->linkedin}}"> <i class="fab fa-linkedin-in"></i></a>
                     @else
                     @endif
                     @if ($users->gitlab != "#empty")
-                    <a href="{{$users->gitlab}}"> <i class="fab fa-gitlab"></i></a>
+                    <a href="//{{$users->gitlab}}"> <i class="fab fa-gitlab"></i></a>
                     @else
                     @endif
                 </div>

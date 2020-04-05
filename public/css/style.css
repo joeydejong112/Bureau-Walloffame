@@ -7,9 +7,42 @@ body {
     background-image: url('../website/background.png');
     /* background-color: gray; */
     background-size: cover;
+    background-attachment: fixed;
 
 }
+.title_login{
+    text-align: center;
+    font-size: 30px;
+    color: #555555;
+    line-height: 1.2;
+}
+.align_login{
+    padding-bottom: 55px;
+    padding-top: 55px;
+    border-radius: 20px;
 
+}
+.login_button_page{
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    border: none!important;
+    line-height: 1.2;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    min-width: 150px;
+    height: 55px;
+    background-color: #333333;
+    border-radius: 27px;
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+}
+.col-form-label{
+    font-weight: bold;
+}
 /* width */
 ::-webkit-scrollbar {
     width: 0px;

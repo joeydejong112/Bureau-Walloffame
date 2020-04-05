@@ -88,6 +88,8 @@ Setup | Wall of fame
                 <label for="text" class="bold">Website</label>
                 <input type="text" value="" name="website" class="form-control" id="text">
                 <label for="text"><b>Note:</b>Laat leeg als je het het niet hebt</label>
+                <label for="text"><b>Voorbeeld:</b>www.test.nl en niet https://www.test.nl</label>
+
             </div>
             <div class="form-group">
                 <label for="text" class="bold">Contact email</label>

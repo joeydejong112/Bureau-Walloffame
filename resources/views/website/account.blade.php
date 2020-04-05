@@ -65,7 +65,7 @@ Account | Wall of fame
                 @else
                 <input type="text" value="{{$users->github}}" name="github" class="form-control" id="text">
                 @endif
-                <label for="text"><b>Note:</b>Laat leeg als je het het niet hebt</label>
+                <label for="text"><b>Note:</b>Laat leeg als je het  niet hebt</label>
             </div>
             <div class="form-group">
                 <label for="text" class="bold">Gitlab</label>
@@ -74,7 +74,7 @@ Account | Wall of fame
                 @else
                 <input type="text" value="{{$users->gitlab}}" name="gitlab" class="form-control" id="text">
                 @endif
-                <label for="text"><b>Note:</b>Laat leeg als je het het niet hebt</label>
+                <label for="text"><b>Note:</b>Laat leeg als je het  niet hebt</label>
             </div>
             <div class="form-group">
                 <label for="text" class="bold">LinkedIn</label>
@@ -83,7 +83,7 @@ Account | Wall of fame
                 @else
                 <input type="text" value="{{$users->linkedin}}" name="linkedin" class="form-control" id="text">
                 @endif
-                <label for="text"><b>Note:</b>Laat leeg als je het het niet hebt</label>
+                <label for="text"><b>Note:</b>Laat leeg als je het  niet hebt</label>
             </div>
             <div class="form-group">
                 <label for="text" class="bold">Over me zelf</label>
@@ -96,6 +96,8 @@ Account | Wall of fame
                 @else
                 <input type="text" value="{{$users->website}}" name="website" class="form-control" id="text">
                 @endif
+                 <label for="text"><b>Note:</b>Laat leeg als je het het niet hebt</label>
+                <label for="text"><b>Voorbeeld : </b>www.test.nl en niet https://www.test.nl</label>
                 <div class="form-group">
                     <label for="text" class="bold">Contact email</label>
                     <input type="text" value="{{$users->contactemail}}" name="contactemail" class="form-control"
