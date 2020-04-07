@@ -2,8 +2,9 @@
 
 namespace App\Http\Middleware;
 
-use Closure;
 use Auth;
+use Closure;
+
 class reverse_setup_checker
 {
     /**
@@ -14,14 +15,14 @@ class reverse_setup_checker
      * @return mixed
      */
     public function handle($request, Closure $next)
-    {          
+    {
         if (Auth::check()) {
             if ($request->user()->hasRole('user')) {
                 return redirect('home');
             }
             return $next($request);
 
-        }else{
+        } else {
             return redirect('home');
 
         }

@@ -77,9 +77,12 @@ Adminpanel | Editing {{$sortuser->name}}
                 <input type="text" value="{{$sortuser->contactemail}}" name="contactemail" class="form-control"
                     id="text">
             </div>
+             <div class="form-group">
+                <input type="hidden" value="{{$sortuser->profile_image}}" name="old_profile_image" class="form-control"
+                    id="text">
+            </div>
             <div class="form-group">
-                <label for="text" class="bold">gebruikers id</label>
-                <input type="text" name="id" class="form-control" value="{{$sortuser->id}}">
+                <input type="hidden" name="id" class="form-control" value="{{$sortuser->id}}">
             </div>
             <button type="submit" class="btn btn-success">Verstuur</button>
         </form>

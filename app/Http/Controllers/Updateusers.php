@@ -26,7 +26,7 @@ class Updateusers extends Controller
 
     public function update(Request $req)
     {
-      //check for setup role
+        //check for setup role
         if (Auth::check()) {
             if ($req->user()->hasRole('setup')) {
 
@@ -38,7 +38,7 @@ class Updateusers extends Controller
                 ]);
             }
         }
-     //check of het leeg is
+        //check of het leeg is
         if ($req->website == null) {
             $req->website = "#empty";
         }

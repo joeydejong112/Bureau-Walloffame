@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-use Auth;
+
 use App\UpdatePostModel;
+use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Intervention\Image\Facades\Image;
@@ -30,7 +31,7 @@ class UpdateAdmin extends Controller
                 ]);
             }
         }
-//check of het leeg is
+        //check of het leeg is
         if ($req->website == null) {
             $req->website = "#empty";
         }
@@ -50,13 +51,13 @@ class UpdateAdmin extends Controller
 
                 'profile_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             ]);
-            File::delete($this->pathuser . '/' . $req->id . '/' . $req->profile_image);
+            File::delete($this->pathuser . '/' . $req->id . '/' . $req->old_profile_image);
 
             $image = $req->file('profile_image');
 
             $image_name = time() . '.' . $image->getClientOriginalExtension();
 
-            $destinationPath = public_path($this->pathuser . '/' . $req->id);
+            $destinationPath = public_path($this->pathuser . '/' .$req->id);
 
             if (!File::isDirectory($destinationPath)) {
 
@@ -75,7 +76,7 @@ class UpdateAdmin extends Controller
             $image->move($destinationPath, $image_name);
             File::delete('OriginalImage/' . $image_name);
 
-            UpdatePostModel::where('id', $req->id)->update([
+            UpdatePostModel::where('id',$req->id)->update([
 
                 'name' => $req->name,
                 'background' => $req->background,
@@ -89,7 +90,7 @@ class UpdateAdmin extends Controller
                 'contactemail' => $req->contactemail,
 
             ]);
-            return redirect()->route('admin');
+            return redirect()->route('succes');
 
         } else {
             UpdatePostModel::where('id', $req->id)->update([
@@ -105,9 +106,11 @@ class UpdateAdmin extends Controller
                 'contactemail' => $req->contactemail,
 
             ]);
-            return redirect()->route('admin');
+            return redirect()->route('succes');
 
         }
 
     }
+
+    
 }

@@ -44,9 +44,11 @@ class AppServiceProvider extends ServiceProvider
 
     public function register()
     {
-        //
+        //for glu application redirect to public_html for public folder
         
-
+        // $this->app->bind('path.public', function() {
+        //     return base_path().'../../public_html';
+        // });
     }
     
 }
